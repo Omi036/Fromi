@@ -27,38 +27,7 @@ Everything is controlled by Managers, which are not communicated with each other
 The structure allows for building as many Managers as needed, which can also be shared between projects as they're not attached to any previous code. Furthermore, the managers can be updated to hold new features.
 
 ### Simplicity
-Simplicity comes with a high level of abstraction. For updating a user to db you would usually do: 
-```js
-let mysql = require('mysql');
-
-let con = mysql.createConnection({
-  host: "localhost",
-  user: "yourusername",
-  password: "yourpassword",
-  database: "mydb"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  let sql = "INSERT INTO users (name, surname) VALUES ('Omi', '036')";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Inserted");
-  });
-});
-```
-But with managers and models:
-```js
-import { UserModel } from ...
-import { DatabaseManager } from ...
-
-DatabaseManager.start()
-UserModel.createOne({
-    username: "Omi",
-    surname: "036"
-})
-```
-Or in a lower level:
+Creating an 'User' is as simple as:
 ```js
 import { DatabaseManager } from...
 
@@ -68,7 +37,7 @@ DatabaseManager.insertOne("users", {
     surname: "036"
 })
 ```
-We don't need to know what's happening with the query, or even if we have to adapt to mysql or mongodb or sqlite. It's the Manager responsability.
+We don't need to know what's happening with the query, or even if we have to adapt to mysql or mongodb or sqlite. It's the Manager responsability, although we could've even used a Model to keep the User Structure intact.
 
 ## Getting started
 Clone the repo and setup the dependencies:
