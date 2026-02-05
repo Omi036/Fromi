@@ -1,8 +1,19 @@
+<br/>
+<br/>
 <div align="center">
-    <h3>Fromi (beta)</h3>
-    <p align="center">
-     Custom General Purpose Node.js Framework.
-    </p>
+  <img height="100" src="https://media.discordapp.net/attachments/1064596920133230642/1469032543440601371/Fromi.png?ex=69862eab&is=6984dd2b&hm=bc085fa582b2120875215ff34bc943408bf91f7271c4e75d4fcdf5a48edf46bf&=&format=webp&quality=lossless&width=638&height=968" />
+  <h3>Fromi</h3>
+  <p align="center">
+    Custom General Purpose Node.js Framework.
+    <br />
+    <a href="#why-should-i-use-this-framework">Why?</a>
+    ·
+    <a href="#getting-started">Getting Started</a>
+    ·
+    <a href="#structure-and-philosophy">Structure</a>
+    ·
+    <a href="#license">License</a>
+  </p>
 </div>
 
 ## Index
