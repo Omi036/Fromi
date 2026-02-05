@@ -13,6 +13,8 @@
     <a href="#structure-and-philosophy">Structure</a>
     ·
     <a href="#license">License</a>
+    ·
+    <a href="MANAGERS.md">Managers</a>
   </p>
 </div>
 
