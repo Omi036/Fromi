@@ -1,5 +1,5 @@
 # Fromi (beta)
-### Custom General Purpose Node.js Framework.
+ Custom General Purpose Node.js Framework.
 
 ## Why should I use this framework?
 Using this framework comes with many advantages, such as **SSS**: stability, simplicity, and huge scalability.  
@@ -8,6 +8,9 @@ All of these are possible thanks to its Manager-oriented structure.
 
 ### Stability
 Everything is controlled by Managers, which are not communicated with each other, and have one single responsability. They are also interchangeable, meaning you can replace or update a Manager while keeping the rest of the code intact.
+
+### Scalability
+The structure allows for building as many Managers as needed, which can also be shared between projects as they're not attached to any previous code. Furthermore, the managers can be updated to hold new features.
 
 ### Simplicity
 Simplicity comes with a high level of abstraction. For updating a user to db you would usually do: 
@@ -52,9 +55,6 @@ DatabaseManager.insertOne("users", {
 })
 ```
 We don't need to know what's happening with the query, or even if we have to adapt to mysql or mongodb or sqlite. It's the Manager responsability.
-
-### Scalability
-The structure allows for building as many Managers as needed, which can also be shared between projects as they're not attached to any previous code. Furthermore, the managers can be updated to hold new features.
 
 ## Installation
 Clone the repo and setup the dependencies:
