@@ -108,6 +108,11 @@ SocketManager.onClientConnection = function(socket: Socket) => void
 ```js
 SocketChannel.new("hello", (socket) => socket.send("World!"))
 ```
+**For starting it:**
+```js
+HTTPManager.handle(SocketChannel.Handler)
+HTTPManager.listen()
+```
 
 <br/>
 
@@ -131,4 +136,9 @@ APIManager.use(middleware: APIMiddleware)
 **For creating a route:** Simply create a new `APIRoute`, it will add itself:
 ```js
 APIRoute.new("get", "/", (req, res) => res.send("Hello"))
+```
+**For starting it:**
+```js
+HTTPManager.handle(APIManager.Handler)
+HTTPManager.listen()
 ```
