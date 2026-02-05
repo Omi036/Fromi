@@ -27,15 +27,22 @@
 - [License](#license)
 
 ## Why should I use this framework?
-Using this framework comes with many advantages, such as **SSS**: stability, simplicity, and huge scalability.  
-And obviously, it comes with database, api and websocket integrations.  
-All of these are possible thanks to its Manager-oriented structure.
+*This framework offers a new coding experience.*  
 
+The main reason you would wanna switch to Fromi is the **Manager-oriented structure**, along with many databases, apis, websockets along with many other **integrations and utilities**.  
+
+Fromi is **comfy to use**, and it eases the SSS advantages: ([Stability](#Stability), [Scalability](#Scalability), [Simplicity](#Simplicity))
+
+<br/>  
+
+## The triple S  
 ### Stability
-Everything is controlled by Managers, which are not communicated with each other, and have one single responsability. They are also interchangeable, meaning you can replace or update a Manager while keeping the rest of the code intact.
+Everything is controlled by Managers, which are not communicated with each other, and have one single responsability.  
+They are also interchangeable, meaning you can replace or update a Manager while keeping the rest of the code intact.
 
 ### Scalability
-The structure allows for building as many Managers as needed, which can also be shared between projects as they're not attached to any previous code. Furthermore, the managers can be updated to hold new features.
+The structure allows for building as many Managers as needed, which may also be shared between projects as they're not attached to any previous code.  
+Furthermore, the managers can be updated to hold new features.
 
 ### Simplicity
 Creating an 'User' is as simple as:
@@ -48,7 +55,10 @@ DatabaseManager.insertOne("users", {
     surname: "036"
 })
 ```
-We don't need to know what's happening with the query, or even if we have to adapt to mysql or mongodb or sqlite. It's the Manager responsability, although we could've even used a Model to keep the User Structure intact.
+We don't need to know what's happening with the query, or even if we have to adapt to mysql or mongodb or sqlite.  
+It's the Manager responsability, although we can configure it.
+
+<br/>  
 
 ## Getting started
 Clone the repo and setup the dependencies:
@@ -63,6 +73,8 @@ npm run start
 ```
 Now you can start tinkering with `src/app.ts`, happy hacking!
 
+<br/>  
+
 ## Structure and philosophy
 This framework contains Managers, Models and the main library.  
 
@@ -74,6 +86,13 @@ Everything is done by **Managers**, they are singleton classes and are in charge
 
 By following this philosophy, we can create a `LoggerManager.info()`, which opposite to `console.log()`, this method prettifies the message to the console (if chosen) and also logs it into files.
 
+### Managers rules
+Managers must contain an `init()` and be called at the end of the file that contains it.  
+Managers should never contact other managers by themselves.  
+Managers with the same responsability should not change field names between updates or versions.  
+
+<br/>  
+
 ## Convention followed
 | Type | Convention | 
 |---|---|
@@ -82,8 +101,11 @@ By following this philosophy, we can create a `LoggerManager.info()`, which oppo
 |Methods | lowerCamelCase  
 |Properties | snake_case  
 |Private Fields | _singleLeading
+|Types | UpperCamelCase
 
-Classes must contain an `init()` and be called at the end of the file that contains it, they should never contact with other managers by themselves.
+
+
+<br/>  
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
