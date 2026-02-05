@@ -1,6 +1,5 @@
-# Fromi
+# Fromi (beta)
 ### Custom General Purpose Node.js Framework.
-(Note, this project is still in beta)
 
 ## Why should I use this framework?
 Using this framework comes with many advantages, such as **SSS**: stability, simplicity, and huge scalability.  
