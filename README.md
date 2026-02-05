@@ -1,5 +1,6 @@
 # Fromi
-Custom General Purpose Node.js Framework.
+### Custom General Purpose Node.js Framework.
+(Note, this project is still in beta)
 
 ## Why should I use this framework?
 Using this framework comes with many advantages, such as **SSS**: stability, simplicity, and huge scalability.  
@@ -11,7 +12,7 @@ Everything is controlled by Managers, which are not communicated with each other
 
 ### Simplicity
 Simplicity comes with a high level of abstraction. For updating a user to db you would usually do: 
-```
+```js
 let mysql = require('mysql');
 
 let con = mysql.createConnection({
@@ -23,7 +24,6 @@ let con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
   let sql = "INSERT INTO users (name, surname) VALUES ('Omi', '036')";
   con.query(sql, function (err, result) {
     if (err) throw err;
@@ -32,7 +32,7 @@ con.connect(function(err) {
 });
 ```
 But with managers and models:
-```
+```js
 import { UserModel } from ...
 import { DatabaseManager } from ...
 
@@ -43,7 +43,7 @@ UserModel.createOne({
 })
 ```
 Or in a lower level:
-```
+```js
 import { DatabaseManager } from...
 
 DatabaseManager.start()
@@ -56,6 +56,19 @@ We don't need to know what's happening with the query, or even if we have to ada
 
 ### Scalability
 The structure allows for building as many Managers as needed, which can also be shared between projects as they're not attached to any previous code. Furthermore, the managers can be updated to hold new features.
+
+## Installation
+Clone the repo and setup the dependencies:
+```bash
+git clone https://github.com/Omi036/Fromi
+cd Fromi
+npm run setup
+```
+For starting the project:
+```bash
+npm run start
+```
+Now you can start tinkering with `src/app.ts`, happy hacking!
 
 ## Structure and philosophy
 This framework contains Managers, Models and the main library.  
