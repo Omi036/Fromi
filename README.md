@@ -17,14 +17,20 @@
 </div>
 
 ## Index
-- [Why using this?](#why-should-i-use-this-framework)
-- - [Stability](#stability)
-- - [Scalability](#scalability)
-- - [Simplicity](#simplicity)
-- [Getting Started](#getting-started)
-- [Structure](#structure-and-philosophy)
-- [Convention](#convention-followed)
-- [License](#license)
+<ol>
+  <li><a href="#why-should-i-use-this-framework">Why using this?</a>
+    <ol>
+      <li><a href="#stability">Stability</a></li>
+      <li><a href="#scalability">Scalability</a></li>
+      <li><a href="#simplicity">Simplicity</a></li>
+    </ol>
+  </li>
+  <li><a href="#getting-started">Getting Started</a></li>
+  <li><a href="#structure-and-philosophy">Structure</a></li>
+  <li><a href="#convention-followed">Convention</a></li>
+  <li><a href="#license">License</a></li>
+</ol>
+
 
 ## Why should I use this framework?
 *This framework offers a new coding experience.*  
