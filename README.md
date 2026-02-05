@@ -1,5 +1,19 @@
-# Fromi (beta)
- Custom General Purpose Node.js Framework.
+<div align="center">
+    <h3>Fromi (beta)</h3>
+    <p align="center">
+     Custom General Purpose Node.js Framework.
+    </p>
+</div>
+
+## Index
+- [Why using this?](#why-should-i-use-this-framework)
+- - [Stability](#stability)
+- - [Scalability](#scalability)
+- - [Simplicity](#simplicity)
+- [Getting Started](#getting-started)
+- [Structure](#structure-and-philosophy)
+- [Convention](#convention-followed)
+- [License](#license)
 
 ## Why should I use this framework?
 Using this framework comes with many advantages, such as **SSS**: stability, simplicity, and huge scalability.  
@@ -56,7 +70,7 @@ DatabaseManager.insertOne("users", {
 ```
 We don't need to know what's happening with the query, or even if we have to adapt to mysql or mongodb or sqlite. It's the Manager responsability.
 
-## Installation
+## Getting started
 Clone the repo and setup the dependencies:
 ```bash
 git clone https://github.com/Omi036/Fromi
@@ -90,3 +104,8 @@ By following this philosophy, we can create a `LoggerManager.info()`, which oppo
 |Private Fields | _singleLeading
 
 Classes must contain an `init()` and be called at the end of the file that contains it, they should never contact with other managers by themselves.
+
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<p align="right"><a href="#index">back to top</a></p>
