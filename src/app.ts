@@ -21,8 +21,9 @@ async function main(){
     HTTPManager.createServer()
     HTTPManager.listen()
 
-    // Registers every Route inside ./routes/api/
+    // Registers every Route inside ./routes/api/ and /routes/ws
     importFromFolder(path.join(__dirname, "routes", "api"))
+    importFromFolder(path.join(__dirname, "routes", "ws"))
 
     LoggerManager.info("Application started");
 }
