@@ -1,6 +1,6 @@
-import { Route } from "../../managers/api/apiManager";
+import { APIRoute } from "../../managers/api/apiManager";
 
-Route.new("get", "/", (req, res) => {
+APIRoute.new("get", "/", (req, res) => {
     res.send("Hello World!")
 })
 
