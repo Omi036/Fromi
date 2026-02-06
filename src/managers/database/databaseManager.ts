@@ -17,7 +17,9 @@ class DatabaseManager extends Manager{
     }
 
     static async start() {
-        await this._drivers[this.driver || this.getEnv("DB_DRIVER")].connect(
+        this.driver = this.driver || this.getEnv("DB_DRIVER")
+
+        await this._drivers[this.driver].connect(
             this.host || this.getEnv("DB_HOST"), 
             this.user || this.getEnv("DB_USER"), 
             this.password || this.getEnv("DB_PASSWORD"),
