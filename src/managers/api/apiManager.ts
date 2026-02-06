@@ -57,6 +57,8 @@ class APIManager extends Manager {
     private static _routes: Array<APIRoute> = []
     private static _middlewares: Array<APIMiddleware> = []
 
+    static useJson = true
+
     static Handler = {
         type: "preembedded",
         handler: (req, res) => {
@@ -70,12 +72,14 @@ class APIManager extends Manager {
         this._hasStarted = true
         this._apiServer = express()
 
-        for(const route of this._routes){
-            route.append(this._apiServer)
-        }
+        this.useJson && this._apiServer.use(express.json())
 
         for(const middleware of this._middlewares){
             this._apiServer.use(middleware.handle)
+        }
+
+        for(const route of this._routes){
+            route.append(this._apiServer)
         }
     }
 

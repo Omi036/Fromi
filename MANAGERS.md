@@ -122,6 +122,8 @@ HTTPManager.listen()
 **On Init:** None  
 **Provides**:
 ```js
+// Wether it should append the json middleware
+APIManager.useJson = true
 // Must be attached to a HTTPServer (HTTPManager.handle)
 APIManager.Handler: HTTPHandler
 // (internal use) Initializes the server and registering 
