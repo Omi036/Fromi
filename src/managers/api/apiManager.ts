@@ -69,7 +69,6 @@ class APIManager extends Manager {
         if(this._hasStarted) return
         this._hasStarted = true
         this._apiServer = express()
-        this._apiServer.use()
 
         for(const route of this._routes){
             route.append(this._apiServer)
