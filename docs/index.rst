@@ -25,7 +25,6 @@ Getting Started
 ---------------
 
 .. toctree::
-   :maxdepth: 2
    :caption: Getting Started
    :hidden:
 
@@ -40,8 +39,8 @@ Managers
 --------
 
 .. toctree::
-   :maxdepth: 2
    :caption: Managers
+   :hidden:
 
    managers/Envinronment
    managers/Logger
