@@ -18,20 +18,16 @@
   </p>
 </div>
 
-## Index
-<ol>
-  <li><a href="#why-should-i-use-this-framework">Why using this?</a>
-    <ol>
-      <li><a href="#stability">Stability</a></li>
-      <li><a href="#scalability">Scalability</a></li>
-      <li><a href="#simplicity">Simplicity</a></li>
-    </ol>
-  </li>
-  <li><a href="#getting-started">Getting Started</a></li>
-  <li><a href="#structure-and-philosophy">Structure</a></li>
-  <li><a href="#convention-followed">Convention</a></li>
-  <li><a href="#license">License</a></li>
-</ol>
+```{toctree}
+:caption: Getting Started
+:hidden:
+
+quickstart
+structure
+managers
+models
+convention
+```
 
 
 ## Why should I use this framework?
@@ -68,20 +64,7 @@ It's the Manager responsability, although we can configure it.
 
 <br/>  
 
-## Getting started
-Clone the repo and setup the dependencies:
-```bash
-git clone https://github.com/Omi036/Fromi
-cd Fromi
-npm run setup
-```
-For starting the project:
-```bash
-npm run start
-```
-Now you can start tinkering with `src/app.ts`, happy hacking!
 
-<br/>  
 
 ## Structure and philosophy
 This framework contains Managers, Models and the main library.  
@@ -101,15 +84,6 @@ Managers with the same responsability should not change field names between upda
 
 <br/>  
 
-## Convention followed
-| Type | Convention | 
-|---|---|
-|Files | lowerCamelCase  
-|Classes | UpperCamelCase  
-|Methods | lowerCamelCase  
-|Properties | snake_case  
-|Private Fields | _singleLeading
-|Types | UpperCamelCase
 
 
 
