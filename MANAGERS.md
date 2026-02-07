@@ -9,6 +9,7 @@ Take in mind that these are the **base** managers, meaning they could've changed
   <li><a href="#http-manager">HTTP Manager</a></li>
   <li><a href="#websocket-manager">WebSocket Manager</a></li>
   <li><a href="#api-manager">API Manager</a></li>
+  <li><a href="#discord-manager">Discord Manager</a></li>
 </ul>
 
 
