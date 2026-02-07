@@ -68,6 +68,53 @@ DatabaseManager.insertOne(table: string, element: Object): Promise<void>
 DatabaseManager.findOne(table: string, element: Object): Promise<Object | void>
 ```
 
+<br/>
+
+## Securty Manager
+**Description**: Provides security features.
+**In** `src/managers/security/securityManager.ts`  
+**On Init:** None  
+**Variables:**  
+| variable | default | property | description |
+| - | - | - | - |
+| JWT Expiration | JWT_EXPIRES | - | Duration of JWT Tokens (in seconds)
+| JWT Secret | JWT_SECRET | - | Secret (atleast 256bits) for JWT Tokens |  
+
+**Provides**:
+```js
+// Hashes texts
+SecurityManager.Bcrypt.hash(value: string | Buffer): Promise<string>
+// Compares a text and a hash
+SecurityManager.Bcrypt.compareHash(compare: string, hash: string): Promise<boolean>
+
+// Encrypts a text using key via AES-256-gcm
+SecurityManager.AES.encrypt(key: string, text: key): AESPayload
+// Decrypts an AES payload
+SecurityManager.AES.decrypt(key: string, payload: AESPayload): string
+
+// Generates a par of GPG keys
+SecurityManager.GPG.generateKeys(users: ..., passphrase?: string): {privateKey: string, publicKey: string, revocationCertificate: string}
+// Crypts a message using the public key
+SecurityManager.GPG.crypt(content: string, publicKey: string): Promise<string>
+// Decrypts a message using the private key
+SecurityManager.GPG.decrypt(content: string, privateKey: string, passphrase?: string): Promise<string>
+// Signs a content with the private key
+SecurityManager.GPG.sign(content: string, privateKey: string, passphrase?: string): Promise<string>
+// Checks if a token is verified correctly
+SecurityManager.GPG.verifySign(signed: string, publicKeyArmored: string): Promise<boolean>
+// Encrypts and signs a message
+SecurityManager.GPG.encryptAndSign(content: string, publicKeyArmored: string, privateKeyArmored: string, passphrase?: string): Promise<string>
+
+// Creates a token with payload. ExpiresIn and jwt secret are specified on .env by default
+SecurityManager.JWT.signToken(payload: any, expiresIn?: number, jwtSecret?: string): string
+// Cheks if token is valid
+SecurityManager.JWT.isTokenValid(token: string, jwtSecret?: string): boolean
+// Gets payload from token
+SecurityManager.JWT.getPayload(token: string, jwtSecret?: string): any
+```
+
+
+
 ## HTTP Manager
 **Description**: Provides a base http server for other services.  
 **In** `src/managers/http/httpManager.ts`  

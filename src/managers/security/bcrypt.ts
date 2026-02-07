@@ -13,7 +13,7 @@ class BcryptModule {
         return hashed_value
     }
 
-    static async compareHash(compare: string, hash: string){
+    static async compareHash(compare: string, hash: string): Promise<boolean>{
         const res = await bcrypt.compare(compare, hash)
         return res
     }
