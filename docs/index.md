@@ -1,8 +1,8 @@
 <br/>
 <br/>
 <div align="center">
-<p align="center"
-<img width="100" src="https://i.imgur.com/PqxlXUD.png" style="margin-left:50px;" />
+<p align="center">
+    <img width="100" src="https://i.imgur.com/PqxlXUD.png" style="margin-left:50px;" />
 </p>
   
   <h3>Fromi</h3>
