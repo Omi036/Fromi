@@ -5,6 +5,10 @@ project = 'Fromi'
 author = 'Omi036'
 release = '0.1.0'
 
+extensions = [
+    "myst_parser"
+]
+
 templates_path = ['_templates'] 
 exclude_patterns = []
 
