@@ -1,7 +1,7 @@
 <br/>
 <br/>
 <div align="center">
-  <img height="100" src="https://i.imgur.com/PqxlXUD.png" />
+  <img width="100" src="https://i.imgur.com/PqxlXUD.png" style="display:block; margin:auto;" />
   <h3>Fromi</h3>
   <p align="center">
     Custom General Purpose Node.js Framework.
