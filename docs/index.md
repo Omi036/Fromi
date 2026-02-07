@@ -21,28 +21,31 @@
   </p>
 </div>
 
-```{toctree}
-:caption: Getting Started
-:hidden:
 
-quickstart
-structure
-managers
-models
-convention
-license
+Getting Started
+---------------
 
-:caption: Managers
+.. toctree::
+   :maxdepth: 2
+   :caption: Getting Started
 
-managers/Envinronment
-managers/Logger
-managers/Database
-managers/Security
-managers/HTTP
-managers/WebSocket
-managers/API
-managers/Discord
-```
+   quickstart
+   structure
+   managers
+   models
+   convention
+   license
+
+Advanced Topics
+---------------
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Advanced Topics
+
+   performance
+   customization
+   plugins
 
 ## Why should I use this framework?
 *This framework offers a new coding experience.*  
