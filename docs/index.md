@@ -9,15 +9,15 @@
   <p align="center">
     Custom General Purpose Node.js Framework.
     <br />
-    <a href="#why-should-i-use-this-framework">Why?</a>
+    <a href="https://fromi.readthedocs.io/en/latest/quickstart.html">Getting Started</a>
     ·
-    <a href="#getting-started">Getting Started</a>
+    <a href="https://fromi.readthedocs.io/en/latest/structure.html">Structure</a>
     ·
-    <a href="#structure-and-philosophy">Structure</a>
+    <a href="https://fromi.readthedocs.io/en/latest/license.html">License</a>
     ·
-    <a href="#license">License</a>
-    ·
-    <a href="MANAGERS.md">Managers</a>
+    <a href="https://github.com/Omi036/Fromi">Repo</a>
+    
+    
   </p>
 </div>
 
