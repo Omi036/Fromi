@@ -23,6 +23,7 @@
 
 ```{toctree}
 :maxdepth: 2
+:hidden:
 :caption: Getting Started
 
 quickstart
