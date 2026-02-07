@@ -38,7 +38,7 @@ license
 :maxdepth: 2
 :caption: Managers
 
-managers/api
+license
 ```
 
 ## Why should I use this framework?
