@@ -44,7 +44,7 @@ JWT_EXPIRES=3600
 JWT_SECRET="a-string-secret-at-least-256-bits-long"
 ```
 
-## `gitignore`
+## `.gitignore`
 Contains the files and folders that should not be sent to github nor other repos. You may want to take a look if planning on uploading your project to a repo, otherwise, don't mind it.
 
 ## `package.json/tsconfig.json`  
@@ -67,3 +67,6 @@ It may be useful for containing models for your framework, such as Users or othe
 ## `src/routes/`
 This folder is optional.
 It may be useful for containing routes for your services, like for API's, WebSockets, Commands or similar.
+
+## `src/app.ts`
+This is the default entry point for your application. Everything you code here, will be executed mainly.

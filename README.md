@@ -1,7 +1,7 @@
 <br/>
 <br/>
 <div align="center">
-  <img height="100" src="https://media.discordapp.net/attachments/1064596920133230642/1469032543440601371/Fromi.png?ex=69862eab&is=6984dd2b&hm=bc085fa582b2120875215ff34bc943408bf91f7271c4e75d4fcdf5a48edf46bf&=&format=webp&quality=lossless&width=638&height=968" />
+  <img height="100" src="https://i.imgur.com/PqxlXUD.png" />
   <h3>Fromi</h3>
   <p align="center">
     Custom General Purpose Node.js Framework.

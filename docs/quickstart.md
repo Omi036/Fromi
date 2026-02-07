@@ -19,11 +19,11 @@ npm run purge
 
 In this framework:
 
-- Managers handle the operations (e.g., logging, database access, etc.).
+- **Managers** handle the operations (e.g., logging, database access, etc.).
 
-- Models define data structures and provide an interface for interacting with them.
+- **Models** define data structures and provide an interface for interacting with them.
 
-- The Main Library contains utility functions and providers that Models or Managers may use.
+- **The Main Library** contains utility functions and providers that Models or Managers may use.
 
 Models allow developers to interact with data like `User.createOne({...})` or `User.findOne({...})` without worrying about the details of database queries or storage management.
 

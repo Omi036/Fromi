@@ -1,9 +1,7 @@
 # Managers
 ## Overview
 
-In this framework, Managers are the central controllers. They are responsible for handling a specific area of functionality in a singleton pattern. All interactions with the framework should go through Managers, which provide a clean, organized, and consistent interface for operations.
-
-Managers encapsulate the logic and control over a particular domain, such as logging, user management, or database interactions, without directly relying on other managers. This separation ensures modularity, maintainability, and predictable behavior.
+Managers **encapsulate the logic and control over a particular domain**, such as logging, user management, or database interactions, without directly relying on other managers. This separation ensures modularity, maintainability, and predictable behavior.
 
 ## Structure and Philosophy
 
@@ -21,25 +19,25 @@ This allows developers to standardize logging behavior across the entire applica
 
 To ensure consistency and maintainability, Managers must follow these rules:
 
-1. Initialization
+1. **Initialization**  
 Every manager must implement an init() method and call it at the end of its file:
 ```js
 MyManager.init();
 ```
 
-2. Isolation
+2. **Isolation**  
 Managers must not contact other managers directly. If access to another manager is required, the user must provide the necessary utilities explicitly.
 
-3. Consistency
+3. **Consistency**  
 Managers responsible for the same domain should not rename fields or change data structures across versions. Backward compatibility is key.
 
 ## Best Practices
 
-- Single Responsibility: A manager should only handle one domain. Avoid combining multiple concerns in a single manager.
+- **Single Responsibility:** A manager should only handle one domain. Avoid combining multiple concerns in a single manager.
 
-- Encapsulation: All internal logic and data should be private; expose only the necessary methods.
+- **Encapsulation:** All internal logic and data should be private; expose only the necessary methods.
 
-- Singleton Usage: Treat managers as singletons to avoid redundant instances and ensure centralized control.
+- **Singleton Usage:** Treat managers as singletons to avoid redundant instances and ensure centralized control.
 
 ## Example: LoggerManager
 ```js

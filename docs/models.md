@@ -1,7 +1,7 @@
 # Models
 ## Overview
 
-Models are the objects that link data storage or domain entities to a programmatic interface. They represent structured information, such as users, database entries, or other resources, and provide methods to interact with that data in a clean, consistent way.
+Models are the objects that **link data storage or domain entities to a programmatic interface**. They represent structured information, such as users, database entries, or other resources, and provide methods to interact with that data in a clean, consistent way.
 
 ## Structure and Philosophy
 
