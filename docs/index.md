@@ -1,7 +1,10 @@
 <br/>
 <br/>
 <div align="center">
-  <img width="100" src="https://i.imgur.com/PqxlXUD.png" style="display:block; margin:auto;" />
+<p align="center"
+<img width="100" src="https://i.imgur.com/PqxlXUD.png" style="margin-left:50px;" />
+</p>
+  
   <h3>Fromi</h3>
   <p align="center">
     Custom General Purpose Node.js Framework.
@@ -28,6 +31,22 @@ managers
 models
 convention
 license
+```
+
+```{toctree}
+:caption: Managers
+:hidden:
+
+
+managers/Envinronment
+managers/Logger
+managers/Database
+managers/Security
+managers/HTTP
+managers/WebSocket
+managers/API
+managers/Discord
+
 ```
 
 
