@@ -56,7 +56,8 @@ LoggerManager.raw(message: any): void
 | host | DB_HOST | DatabaseManager.host | IP or URL where the DB is online |
 | username | DB_USER | DatabaseManager.user | User to connect with |
 | password | DB_PASSWORD | DatabaseManager.password | Password for user, recommended .env use
-| database | DB_DATABASE | DatabaseManager.database | Database where to connect to |
+| database | DB_DATABASE | DatabaseManager.database | Database where to connect to |  
+
 **Provides**:
 ```js
 // Starts the connection to the db
@@ -156,7 +157,8 @@ HTTPManager.listen()
 | variable | default | property | description |
 | - | - | - | - |
 | token | DISCORD_TOKEN | - | Discord client token, recommended .env use |
-| client id | DISCORD_CLIENT_ID | - | ID of the Discord client, recommended .env use |
+| client id | DISCORD_CLIENT_ID | - | ID of the Discord client, recommended .env use |  
+
 **Provides**:
 ```js
 // Logins the bot to discord, token and clientid are automatically selected from env if getEnv is specified.
