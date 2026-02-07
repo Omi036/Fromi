@@ -23,7 +23,6 @@
 
 ```{toctree}
 :caption: Getting Started
-:hidden:
 
 quickstart
 structure
