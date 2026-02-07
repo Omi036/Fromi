@@ -12,9 +12,21 @@ import {
     SlashCommandStringOption, 
     SlashCommandUserOption 
 } from "discord.js";
+import { DiscordManager } from "./discordManager";
 
 class DiscordCommand {
-    static list: DiscordCommand[] = [];
+    constructor(should_register: boolean = true) { 
+        this._shouldRegister = should_register
+        if(should_register) DiscordManager.commands.push(this) 
+    }
+    static new(should_register: boolean = true): DiscordCommand {return new this()}
+
+    // Returns a command given its name
+    static getCommand(name: string): DiscordCommand | undefined {
+        return DiscordManager.commands.find(cmd => cmd.command_name === name);
+    } 
+
+    // Execute a command given its name
     static execute(command_name: string, ...args: any[]): any {
         const command = DiscordCommand.getCommand(command_name);
         if (!command) {
@@ -23,14 +35,14 @@ class DiscordCommand {
         return command.execute(...args);
     }
 
-    static getCommand(name: string): DiscordCommand | undefined {
-        return this.list.find(cmd => cmd.command_name === name);
-    } 
 
-    private _params: Map<string, ApplicationCommandOptionBase> = new Map();
     command_name: string = "basecommand";
     command_description: string = "Base command description";
     permissions_required: PermissionFlags[] = [];
+    readonly _shouldRegister: boolean = true
+    private _params: Map<string, ApplicationCommandOptionBase> = new Map();
+    
+    
     async execute(...args: any[]): Promise<any> {}
 
     setName(name: string): this {
@@ -112,9 +124,6 @@ class DiscordCommand {
         this._params.set(param.name, param);
         return this;
     }
-
-    constructor() {DiscordCommand.list.push(this)}
-    static new(): DiscordCommand {return new this()}
 }
 
 export { DiscordCommand };

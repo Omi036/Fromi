@@ -6,27 +6,34 @@ import { DiscordEvent } from "./events";
 
 class DiscordManager extends Manager {
     static client: DiscordClient | null = null;
-    static getEnv(varName: string): string {return ""};
+    static commands: DiscordCommand[] = []
+    static events: DiscordEvent[] = []
+    static getEnv(varName: string, fallback?: any): string {return ""};
     static logInfo(message: string, section?: string) {
         console.log(`[${section}] ${message}`);
     }
 
-    static init() {
-        this.client = new DiscordClient({ intents: [GatewayIntentBits.Guilds] });
+    static init(intents: GatewayIntentBits[] = [GatewayIntentBits.Guilds]) {
+        this.client = new DiscordClient({ intents: intents });
     }
 
 
-    static login(): void {
-        const token = this.getEnv("DISCORD_TOKEN")
+    static login(token?: string, clientId?: string): void {
+        token = token || this.getEnv("DISCORD_TOKEN")
         this.logInfo("Logging in to Discord...", "DiscordManager");        
         this.client.login(token);
         this.logInfo("Logged in", "DiscordManager");
+
+        this.loadCommands(this.commands, token, clientId)
+        this.loadEvents(this.events)
     }
 
 
     static async getCommandsInDirectory(directory: string): Promise<DiscordCommand[]> {
-        const commandModules = await importFromFolder(directory);
-        const commands: DiscordCommand[] = commandModules.map(mod => mod.default);
+        const commandModules = await importFromFolder(directory)
+        const commands: DiscordCommand[] = commandModules
+            .map(mod => mod.default)
+            .filter(mod => mod instanceof DiscordCommand);
 
         return commands;
     }
@@ -34,11 +41,14 @@ class DiscordManager extends Manager {
 
     static async getEventsInDirectory(directory: string): Promise<DiscordEvent[]> {
         const eventModules = await importFromFolder(directory);
-        const events: DiscordEvent[] = eventModules.map(mod => mod.default);
+        const events: DiscordEvent[] = eventModules
+            .map(mod => mod.default)
+            .filter(mod => mod instanceof DiscordEvent);
+            
         return events;
     }
 
-
+    static async loadEvent(event: DiscordEvent): Promise<void> { this.loadEvents([event]) }
     static async loadEvents(events: DiscordEvent[]): Promise<void> {
         this.logInfo(`Registering ${events.length} events...`, "DiscordManager");
 
@@ -49,10 +59,11 @@ class DiscordManager extends Manager {
     }
 
 
-    static async loadCommands(commandList: DiscordCommand[]): Promise<void> {
+    static async loadCommand(command): Promise<void> { this.loadCommands([command]) }
+    static async loadCommands(commandList: DiscordCommand[], token?: string, clientId?: string): Promise<void> {
 
-        const token = this.getEnv("DISCORD_TOKEN")
-        const clientId = this.getEnv("DISCORD_CLIENT_ID")
+        token = token || this.getEnv("DISCORD_TOKEN")
+        clientId = clientId || this.getEnv("DISCORD_CLIENT_ID")
 
         this.logInfo("Loading commands...", "DiscordManager");    
 

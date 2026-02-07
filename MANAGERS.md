@@ -55,7 +55,7 @@ LoggerManager.raw(message: any): void
 | host | DB_HOST | DatabaseManager.host | IP or URL where the DB is online |
 | username | DB_USER | DatabaseManager.user | User to connect with |
 | password | DB_PASSWORD | DatabaseManager.password | Password for user, recommended .env use
-| database | DB_DATABASE | DatabaseManager.database | Database where to connect to
+| database | DB_DATABASE | DatabaseManager.database | Database where to connect to |
 **Provides**:
 ```js
 // Starts the connection to the db
@@ -143,4 +143,45 @@ APIRoute.new("get", "/", (req, res) => res.send("Hello"))
 ```js
 HTTPManager.handle(APIManager.Handler)
 HTTPManager.listen()
+```
+
+<br/>
+
+## Discord Manager
+**Description**: Provides a wrapper for discord.js library 
+**In** `src/managers/discord/discordManager.ts`  
+**On Init:** Creates a discord.client  
+**Variables:**  
+| variable | default | property | description |
+| - | - | - | - |
+| token | DISCORD_TOKEN | - | Discord client token, recommended .env use |
+| client id | DISCORD_CLIENT_ID | - | ID of the Discord client, recommended .env use |
+**Provides**:
+```js
+// Logins the bot to discord, token and clientid are automatically selected from env if getEnv is specified.
+DiscordManager.login(token?: string, clientId?: string): void
+// Returns every command in directory 
+DiscordManager.getCommandsInDirectory(directory: string): Promise<DiscordCommand[]>
+// Returns every event in directory 
+DiscordManager.getEventsInDirectory(directory: string): Promise<DiscordEvent[]>
+// (internal use) Registers every event in list
+DiscordManager.loadEvents(events: DiscordEvents[]): Promise<void>
+DiscordManager.loadEvent(events: DiscordEvents): Promise<void>
+// (internal use) Registers every command in list
+DiscordManager.loadCommands(commands: DiscordCommand[]): Promise<void>
+DiscordManager.loadCommands(command: DiscordCommand): Promise<void>
+```
+**Exports:** `DiscordManager`, `DiscordCommand`, `DiscordEvents`  
+**For creating a command:** Simply create a new `DiscordCommand` and load the script:
+```js
+DiscordCommand.new()
+    .setName("ping")
+    .setDescription("pong!")
+    .setExecute(interaction => interaction.reply("pong!"))
+```
+**For creating a event:** Simply create a new `DiscordEvent` and load the script:
+```js
+DiscordEvent.new()
+    .listenOnceFor("clientReady")
+    .setExecute(() => console.log("Bot is ready!"))
 ```
