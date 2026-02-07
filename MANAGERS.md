@@ -6,6 +6,7 @@ Take in mind that these are the **base** managers, meaning they could've changed
   <li><a href="#envinronment-manager">Envinronment Manager</a></li>
   <li><a href="#logger-manager">Logger Manager</a></li>
   <li><a href="#database-manager">Database Manager</a></li>
+  <li><a href="#security-manager">Security Manager</a></li>
   <li><a href="#http-manager">HTTP Manager</a></li>
   <li><a href="#websocket-manager">WebSocket Manager</a></li>
   <li><a href="#api-manager">API Manager</a></li>
