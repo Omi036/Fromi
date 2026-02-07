@@ -31,12 +31,8 @@ managers
 models
 convention
 license
-```
 
-```{toctree}
 :caption: Managers
-:hidden:
-
 
 managers/Envinronment
 managers/Logger
@@ -46,9 +42,7 @@ managers/HTTP
 managers/WebSocket
 managers/API
 managers/Discord
-
 ```
-
 
 ## Why should I use this framework?
 *This framework offers a new coding experience.*  

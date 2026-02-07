@@ -14,7 +14,7 @@
     ·
     <a href="#license">License</a>
     ·
-    <a href="MANAGERS.md">Managers</a>
+    <a href="https://fromi.readthedocs.io/en/latest/index.html#">Docs</a>
   </p>
 </div>
 
