@@ -1,8 +1,8 @@
 import os
 import sys
 
-project = 'MiFramework'
-author = 'Tu Nombre'
+project = 'Fromi'
+author = 'Omi036'
 release = '0.1.0'
 
 templates_path = ['_templates'] 
