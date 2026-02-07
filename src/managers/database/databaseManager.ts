@@ -3,7 +3,7 @@ import { MysqlDriver } from "./drivers/mysqlDriver";
 
 class DatabaseManager extends Manager{
     static init() {}
-    static getEnv(varName: string, fallback = undefined): string {return "none"};
+    static getEnv(varName: string, fallback = undefined): any {return undefined};
 
     static driver: string
     static host: string
