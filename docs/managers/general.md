@@ -1,7 +1,7 @@
 # The Builtins Managers
 Take in mind that these are the **base** managers, meaning they could've changed in your project if someone updated them.  
 
-For checking a spcific manager, check the respective page on the docs.
+For checking a specific manager, check the respective page on the docs.
 
 ## Index
 <ul>

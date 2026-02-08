@@ -30,7 +30,7 @@ DatabaseManager.findOne(table: string, element: Object): Promise<Object | void>
 [`driver`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-driver-string)  
 [`host`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-host-string)  
 [`user`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-user-string)  
-[`password`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-password-string))  
+[`password`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-password-string)  
 [`database`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-database-string)
 
 #### Methods
