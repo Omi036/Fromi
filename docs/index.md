@@ -39,7 +39,7 @@ license
 :caption: Managers
 
 license
-managers/api
+managers/API
 ```
 
 ## Why should I use this framework?
