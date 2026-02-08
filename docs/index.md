@@ -39,6 +39,7 @@ license
 :hidden:
 :caption: Managers
 
+managers/general
 managers/Logger
 managers/Envinronment
 managers/HTTP
