@@ -41,7 +41,7 @@ license
 
 managers/general
 managers/Logger
-managers/Envinronment
+managers/Environment
 managers/HTTP
 managers/api
 managers/WebSocket

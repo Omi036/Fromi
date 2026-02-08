@@ -1,5 +1,5 @@
-# Envinronment Manager
-**Description**: Provides a getter for envinronment variables, may be used for other managers.  
+# Environment Manager
+**Description**: Provides a getter for environment variables, may be used for other managers.  
 **In** `src/managers/env/envManager.ts`  
 **On Init:** Loads .env file from root dir  
 

@@ -28,7 +28,7 @@ This is where the magic happens.
 All the code is contained here and only inside this folder.  
 
 ## `.env`
-This is your secret envinronment variables file. Here you can safely place any variables or sensitive tokens and will not be exposed. That said, do not ever leak this file.  
+This is your secret environment variables file. Here you can safely place any variables or sensitive tokens and will not be exposed. That said, do not ever leak this file.  
 By default, a template of this file is provided, with the following structure:  
 ```
 DB_DRIVER="mysql"

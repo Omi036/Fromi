@@ -5,7 +5,7 @@ For checking a spcific manager, check the respective page on the docs.
 
 ## Index
 <ul>
-  <li><a href="#envinronment-manager">Envinronment Manager</a></li>
+  <li><a href="#environment-manager">Environment Manager</a></li>
   <li><a href="#logger-manager">Logger Manager</a></li>
   <li><a href="#database-manager">Database Manager</a></li>
   <li><a href="#security-manager">Security Manager</a></li>
@@ -18,15 +18,15 @@ For checking a spcific manager, check the respective page on the docs.
 
 <br/>
 
-## Envinronment Manager
-**Description**: Provides a getter for envinronment variables, may be used for other managers.  
+## Environment Manager
+**Description**: Provides a getter for environment variables, may be used for other managers.  
 **In** `src/managers/env/envManager.ts`  
 **On Init:** Loads .env file from root dir  
 **Provides**:
 ```js
 // Gets a value or default if it does not exist
 EnvManager.getEnv(key: string, default: any): any
-// Sets an envinronment variable only during runtime
+// Sets an environment variable only during runtime
 EnvManager.setEnv(key: string, value: any): void
 ```
 
