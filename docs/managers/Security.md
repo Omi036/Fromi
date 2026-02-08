@@ -47,19 +47,19 @@ SecurityManager.JWT.getPayload(token: string, jwtSecret?: string): any
 
 ### Fields
 #### Methods
-`Bcrypt.hash()`  
-`Bcrypt.compareHash()`  
-`AES.encrypt()`  
-`AES.decrypt()`  
-`GPG.generateKeys()`  
-`GPG.crypt()`  
-`GPG.decrypt()`  
-`GPG.sign()`  
-`GPG.verifySign()`  
-`GPG.encryptAndSign()`  
-`JWT.signToken()`  
-`JWT.isTokenValid()`  
-`JWT.getPayload()`  
+[`Bcrypt.hash()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-bcrypt-hash-value-string-buffer-promise-string)  
+[`Bcrypt.compareHash()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-bcrypt-comparehash-compare-string-hash-string-promise-boolean)  
+[`AES.encrypt()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-aes-encrypt-key-string-text-string-aespayload)  
+[`AES.decrypt()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-aes-decrypt-key-string-payload-aespayload-string)  
+[`GPG.generateKeys()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-gpg-generatekeys-privatekey-string-publickey-string-revocationcertificate-string)  
+[`GPG.crypt()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-gpg-crypt-content-string-publickey-string-promise-string)  
+[`GPG.decrypt()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-gpg-decrypt-content-string-privatekey-string-passphrase-string-promise-string)  
+[`GPG.sign()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-gpg-sign-content-string-privatekey-string-passphrase-string-promise-string)  
+[`GPG.verifySign()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-gpg-verifysign-signed-string-publickeyarmored-string-promise-boolean)  
+[`GPG.encryptAndSign()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-gpg-encryptandsign-promise-string)  
+[`JWT.signToken()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-jwt-signtoken-payload-any-expiresin-number-jwtsecret-string-string)  
+[`JWT.isTokenValid()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-jwt-istokenvalid-token-string-jwtsecret-string-boolean)  
+[`JWT.getPayload()`](https://fromi.readthedocs.io/en/latest/managers/Security.html#securitymanager-jwt-getpayload-token-string-jwtsecret-string-any)  
 
 #### Exports
 `SecurityManager`

@@ -24,14 +24,14 @@ SocketManager.onClientConnection = function(socket: Socket) => void
 
 ### Fields
 #### Properties
-`Handler`  
-`onClientConnection`
+[`Handler`](https://fromi.readthedocs.io/en/latest/managers/WebSocket.html#socketmanager-handler-httphandler)  
+[`onClientConnection`](https://fromi.readthedocs.io/en/latest/managers/WebSocket.html#socketmanager-onclientconnection-function)
 
 #### Methods
-`start()`  
-`use()`  
-`addChannel()`  
-`emit()`  
+[`start()`](https://fromi.readthedocs.io/en/latest/managers/WebSocket.html#socketmanager-start-promise-void)  
+[`use()`](https://fromi.readthedocs.io/en/latest/managers/WebSocket.html#socketmanager-use-middleware-socketmiddleware-void)  
+[`addChannel()`](https://fromi.readthedocs.io/en/latest/managers/WebSocket.html#socketmanager-addchannel-channel-socketchannel-promise-void)  
+[`emit()`](https://fromi.readthedocs.io/en/latest/managers/WebSocket.html#socketmanager-emit-channel-string-args-any-promise-void)  
 
 #### Exports
 `SocketManager`
@@ -65,6 +65,7 @@ SocketManager.onClientConnection = function(socket: Socket) => void
 #### `SocketManager.emit(channel: string, ...args: any): Promise<void>`  
  &nbsp;&nbsp;&nbsp;&nbsp; Sends a message to everyone in the channel.
 
+<br/>
 
 ### Examples
 #### Creating a Simple Websocket

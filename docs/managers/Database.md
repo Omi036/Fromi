@@ -27,16 +27,16 @@ DatabaseManager.findOne(table: string, element: Object): Promise<Object | void>
 
 ### Fields
 #### Properties
-`driver`  
-`host`  
-`user`  
-`password`  
-`database`
+[`driver`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-driver-string)  
+[`host`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-host-string)  
+[`user`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-user-string)  
+[`password`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-password-string))  
+[`database`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-database-string)
 
 #### Methods
-`start()`  
-`insertOne()`  
-`findOne()`  
+[`start()`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-start-void)  
+[`insertOne()`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-insertone-table-string-element-object-promise-void)  
+[`findOne()`](https://fromi.readthedocs.io/en/latest/managers/Database.html#databasemanager-findone-table-string-element-object-promise-object-void)  
 
 #### Exports
 `DatabaseManager`

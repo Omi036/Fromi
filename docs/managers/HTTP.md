@@ -20,13 +20,10 @@ HTTPManager.Server
 <br/>
 
 ### Fields
-#### Properties
-`Server`
-
 #### Methods
-`createServer()`  
-`handle()`  
-`listen()`  
+[`createServer()`](https://fromi.readthedocs.io/en/latest/managers/HTTP.html#httpmanager-createserver-http-server)  
+[`handle()`](https://fromi.readthedocs.io/en/latest/managers/HTTP.html#httpmanager-handle-handler-httphandler-void)  
+[`listen()`](https://fromi.readthedocs.io/en/latest/managers/HTTP.html#httpmanager-listen-port-number-hostname-string-void)  
 
 #### Exports
 `HTTPManager`

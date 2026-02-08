@@ -24,13 +24,13 @@ APIManager.use(middleware: APIMiddleware)
 
 ### Fields
 #### Properties
-`useJson`  
-`Handler`
+[`useJson`](https://fromi.readthedocs.io/en/latest/managers/api.html#apimanager-usejson-boolean)  
+[`Handler`](https://fromi.readthedocs.io/en/latest/managers/api.html#apimanager-handler-httphandler)
 
 #### Methods
-`start()`  
-`addRoute()`  
-`use()`  
+[`start()`](https://fromi.readthedocs.io/en/latest/managers/api.html#apimanager-start-void)  
+[`addRoute()`](https://fromi.readthedocs.io/en/latest/managers/api.html#apimanager-addroute-route-apiroute-void)  
+[`use()`](https://fromi.readthedocs.io/en/latest/managers/api.html#apimanager-use-middleware-apimiddleware-void)  
 
 #### Exports
 `SocketManager`
@@ -60,6 +60,8 @@ APIManager.use(middleware: APIMiddleware)
 
 #### `APIManager.use(middleware: APIMiddleware): void`  
  &nbsp;&nbsp;&nbsp;&nbsp; Handles a middleware.
+
+<br/>
 
 ### Examples
 #### Creating a Simple API

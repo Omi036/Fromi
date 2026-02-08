@@ -15,12 +15,13 @@
 
 ### Fields
 #### Methods
-`login()`  
-`getCommandsInDirectory()`  
-`getEventsInDirectory()`  
-`loadEvents()`  
-`loadEvent()`  
-`loadCommands()`  
+[`login()`](https://fromi.readthedocs.io/en/latest/managers/Discord.html#discordmanager-login-token-string-clientid-string-void)  
+[`getCommandsInDirectory()`](https://fromi.readthedocs.io/en/latest/managers/Discord.html#discordmanager-getcommandsindirectory-directory-string-promise-discordcommand)  
+[`getEventsInDirectory()`](https://fromi.readthedocs.io/en/latest/managers/Discord.html#discordmanager-geteventsindirectory-directory-string-promise-discordevent)  
+[`loadEvents()`](https://fromi.readthedocs.io/en/latest/managers/Discord.html#discordmanager-loadevents-events-discordevents-promise-void)  
+[`loadEvent()`](https://fromi.readthedocs.io/en/latest/managers/Discord.html#discordmanager-loadevent-event-discordevents-promise-void)  
+[`loadCommands()`](https://fromi.readthedocs.io/en/latest/managers/Discord.html#discordmanager-loadcommands-commands-discordcommand-promise-void)  
+[`loadCommand()`](https://fromi.readthedocs.io/en/latest/managers/Discord.html#discordmanager-loadcommands-command-discordcommand-promise-void)  
 
 #### Exports
 `DiscordManager`
@@ -51,7 +52,7 @@
 #### `DiscordManager.loadCommands(commands: DiscordCommand[]): Promise<void>`  
  &nbsp;&nbsp;&nbsp;&nbsp; Registers every command in list.
 
-#### `DiscordManager.loadCommands(command: DiscordCommand): Promise<void>`  
+#### `DiscordManager.loadCommand(command: DiscordCommand): Promise<void>`  
  &nbsp;&nbsp;&nbsp;&nbsp; Registers a single command.
 
 <br/>

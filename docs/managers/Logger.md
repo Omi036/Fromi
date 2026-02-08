@@ -17,11 +17,11 @@ LoggerManager.raw(message: any): void
 
 ### Fields
 #### Properties
-`debug_mode`
+[`debug_mode`](https://fromi.readthedocs.io/en/latest/managers/Logger.html#loggermanager-debug-mode-boolean)
 
 #### Methods
-`info()`  
-`raw()`  
+[`info()`](https://fromi.readthedocs.io/en/latest/managers/Logger.html#loggermanager-info-message-string-category-string)  
+[`raw()`](https://fromi.readthedocs.io/en/latest/managers/Logger.html#loggermanager-info-message-string-category-string)  
 
 #### Exports
 `LoggerManager`
