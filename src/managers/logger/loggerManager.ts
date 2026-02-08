@@ -10,7 +10,8 @@ const Colors = {
     warn: "\x1b[33m",
     verbose: "\x1b[43m",
     reset: "\x1b[0m",
-    grey: "\x1b[90m"
+    grey: "\x1b[90m",
+    debug: "\x1b[35m"
 };
 
 const dailyRotateFile = new winston.transports.DailyRotateFile({
@@ -29,8 +30,11 @@ function getFormattedDate(): string {
     return `${hours}:${minutes}:${seconds}`;
 }
 
+
 const log4jFormat = format.printf(({ level, message, timestamp }) => {
-  return `${timestamp} [${level.toUpperCase()}] ${message}`;
+    let text = typeof message === "string" ? message : JSON.stringify(message, null, 2);
+    text = text.replace(/\x1b\[[0-9;]*m/g, "");
+    return `${timestamp} [${level.toUpperCase()}] ${text}`;
 });
 
 class ConsoleTransport extends Transport {
@@ -59,7 +63,7 @@ class LoggerManager extends Manager {
 
     static init() {
         LoggerManager.logger_info = winston.createLogger({
-            level: 'info',
+            level: "debug",
             format: format.combine(
                 format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
                 log4jFormat
@@ -68,19 +72,34 @@ class LoggerManager extends Manager {
         });
 
         LoggerManager.console_info = winston.createLogger({
-            level: 'info',
+            level: 'debug',
             format: winston.format.simple(),
             transports: [new ConsoleTransport()],
         });
     }
 
-    static info(message: string, section?: string) {
-        if(section){
-            message = `${Colors.grey}[${section}]${Colors.reset} ${message}`;
-        }
+    private static _sendMessage(message: string, level: string, section = ""){
+        message = `${Colors.grey}${section? `[${section}] ` : ""}${Colors.reset}${message}`;
 
-        LoggerManager.logger_info.info(message);
-        LoggerManager.debug_mode && LoggerManager.console_info.info(message);
+        this.logger_info[level](message)
+        this.console_info[level](message)
+    }
+
+    static info(message: string, section?: string) {
+        this._sendMessage(message, "info", section)
+    }
+
+    static debug(message: string, section?: string){
+        if(!this.debug_mode) return
+        this._sendMessage(message, "debug", section)
+    }
+
+    static error(message: string, section?: string){
+        this._sendMessage(message, "error", section)
+    }
+
+    static warn(message: string, section?: string){
+        this._sendMessage(message, "warn", section)
     }
 
     static raw(message: any) {

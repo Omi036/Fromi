@@ -21,7 +21,10 @@ LoggerManager.raw(message: any): void
 
 #### Methods
 [`info()`](https://fromi.readthedocs.io/en/latest/managers/Logger.html#loggermanager-info-message-string-category-string)  
-[`raw()`](https://fromi.readthedocs.io/en/latest/managers/Logger.html#loggermanager-info-message-string-category-string)  
+[`debug()`](https://fromi.readthedocs.io/en/latest/managers/Logger.html#loggermanager-debug-message-string-category-string)  
+[`warn()`](https://fromi.readthedocs.io/en/latest/managers/Logger.html#loggermanager-warn-message-string-category-string)  
+[`error()`](https://fromi.readthedocs.io/en/latest/managers/Logger.html#loggermanager-error-message-string-category-string)  
+[`raw()`](https://fromi.readthedocs.io/en/latest/managers/Logger.html#loggermanager-raw-message-any)  
 
 #### Exports
 `LoggerManager`
@@ -37,6 +40,15 @@ LoggerManager.raw(message: any): void
 
 #### Methods
 #### `LoggerManager.info(message: string, category?: string)`  
+ &nbsp;&nbsp;&nbsp;&nbsp; Send `message` to logs. If `category` is specified, it will be appended to the message.
+
+#### `LoggerManager.debug(message: string, category?: string)`  
+ &nbsp;&nbsp;&nbsp;&nbsp; Send `message` to logs if `debug_mode` is enabled. If `category` is specified, it will be appended to the message.
+
+#### `LoggerManager.warn(message: string, category?: string)`  
+ &nbsp;&nbsp;&nbsp;&nbsp; Send `message` to logs. If `category` is specified, it will be appended to the message.
+
+#### `LoggerManager.error(message: string, category?: string)`  
  &nbsp;&nbsp;&nbsp;&nbsp; Send `message` to logs. If `category` is specified, it will be appended to the message.
 
 #### `LoggerManager.raw(message: any)`  
