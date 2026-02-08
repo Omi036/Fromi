@@ -85,6 +85,7 @@ import { APIRoute } from "../../managers/api/apiManager";
 
 APIRoute.new("get", "/", (req, res) => res.send("Hello"))
 ```
+Note that HTTPHandler could handle both websockets and api managers, the don't interfere with each other. 
 
 <br/>
 
@@ -106,4 +107,4 @@ import { importFromFolder } from "./lib/utils/filing"
 // We import every route inside routes/api/
 importFromFolder(path.join(__dirname, "routes", "api"))
 ```
-This will work because `ApiRoute.new()` appends itself to the APIManager. That means that once the ApiRoute.new() is triggered by the file being registered, it will append itself automatically.
+This will work because `ApiRoute.new()` appends itself to the APIManager. That means that once the `ApiRoute.new()` is triggered by the script being registered, it will append itself automatically.

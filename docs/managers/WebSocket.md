@@ -68,3 +68,60 @@ HTTPManager.listen()
 
 #### `SocketManager.emit(channel: string, ...args: any): Promise<void>`  
  &nbsp;&nbsp;&nbsp;&nbsp; Sends a message to everyone in the channel.
+
+
+### Examples
+#### Creating a Simple Websocket
+Let's create a simple websocket that greets us!
+```{code-block} js
+:caption: /src/app.ts
+
+import { SocketManager } from "./managers/socket/apiManager"
+import { HTTPManager } from "./managers/http/httpManager";
+import { importFromFolder } from "./lib/utils/filing"
+
+async function main() {
+    // We tell HttpManager to also handle the Websocket
+    HTTPManager.handle(SocketManager.Handler)
+    HTTPManager.createServer()
+    HTTPManager.listen()
+
+    // Now we register every Channel inside ./routes/ws/
+    importFromFolder(path.join(__dirname, "routes", "ws"))
+}
+
+main()
+```
+Now let's create the channel:
+```{code-block} js
+:caption: /src/routes/ws/helloChannel.ts
+
+import { SocketChannel } from "../../managers/socket/socketManager";
+
+SocketChannel.new("hello", async (socket) => {
+    await socket.send("test")
+})
+```
+Note that HTTPHandler could handle both websockets and api managers, the don't interfere with each other. 
+
+#### Creating a channel
+**For creating a channel** simply create a new `SocketChannel`:
+```{code-block} js
+:caption: /src/routes/ws/helloChannel.ts
+
+import { SocketChannel } from "../../managers/socket/socketManager";
+
+SocketChannel.new("hello", async (socket) => {
+    await socket.send("test")
+})
+```
+And make sure to import the file:
+```{code-block} js
+:caption: /src/app.ts
+
+import { importFromFolder } from "./lib/utils/filing"
+
+// We import every route inside routes/api/
+importFromFolder(path.join(__dirname, "routes", "ws"))
+```
+This will work because `SocketChannel.new()` appends itself to the APIManager. That means that once the `SocketChannel.new()` is triggered by the script being registered, it will append itself automatically.
