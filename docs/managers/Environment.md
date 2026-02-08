@@ -16,7 +16,7 @@ EnvManager.setEnv(key: string, value: any): void
 
 ### Fields
 #### Methods
-`getEnv()`  
+[`getEnv()`](https://fromi.readthedocs.io/en/latest/managers/Environment.html#envmanager-getenv-key-string-default-any-any)  
 `setEnv()`  
 
 #### Exports
