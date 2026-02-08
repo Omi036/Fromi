@@ -1,1 +1,70 @@
-# WebSocket Manger
+# WebSocket Manager
+
+**Description**: Provides a web socket server with channels/events.  
+**In** `src/managers/socket/socketManager.ts`  
+**On Init:** None  
+**Provides**:
+```js
+// Must be attached to a HTTPServer (HTTPManager.handle)
+SocketManager.Handler: HTTPHandler
+// (internal use) Initializes the server and registering 
+SocketManager.start(): Promise<void>
+// Registers a middleware
+SocketManager.use(middleware: SocketMiddleware): void
+// (internal use) Starts listening for channel. channel must be of type SocketChannel 
+SocketManager.addChannel(channel: SocketChannel): Promise<void>
+// Sends a message on `channel` to everyone
+SocketManager.emit(channel: string, ...args: any): Promise<void>
+// Function that triggers when a user connects, must replace value
+SocketManager.onClientConnection = function(socket: Socket) => void
+```
+**Exports:** `SocketManager`, `SocketMiddleware`, `SocketChannel`  
+**For creating a channel:** Simply create a new `SocketManager`, it will add itself unless `connectOnJoin` is specified on constructor.
+```js
+SocketChannel.new("hello", (socket) => socket.send("World!"))
+```
+**For starting it:**
+```js
+HTTPManager.handle(SocketChannel.Handler)
+HTTPManager.listen()
+```
+
+<br/>
+
+### Fields
+#### Properties
+`Handler`  
+`onClientConnection`
+
+#### Methods
+`start()`  
+`use()`  
+`addChannel()`  
+`emit()`  
+
+<br/>
+
+### Docs
+
+#### Properties
+#### `SocketManager.Handler: HTTPHandler`  
+ &nbsp;&nbsp;&nbsp;&nbsp; Must be attached to an HTTPServer.
+
+#### `SocketManager.onClientConnection: function`  
+ &nbsp;&nbsp;&nbsp;&nbsp; Function executed when a client connects.
+
+<br/>
+
+#### Methods
+
+#### `SocketManager.start(): Promise<void>`  
+ &nbsp;&nbsp;&nbsp;&nbsp; Initializes the websocket server.
+
+#### `SocketManager.use(middleware: SocketMiddleware): void`  
+ &nbsp;&nbsp;&nbsp;&nbsp; Registers a middleware.
+
+#### `SocketManager.addChannel(channel: SocketChannel): Promise<void>`  
+ &nbsp;&nbsp;&nbsp;&nbsp; Starts listening for a channel.
+
+#### `SocketManager.emit(channel: string, ...args: any): Promise<void>`  
+ &nbsp;&nbsp;&nbsp;&nbsp; Sends a message to everyone in the channel.
