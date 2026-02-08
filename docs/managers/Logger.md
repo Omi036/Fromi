@@ -15,16 +15,18 @@ LoggerManager.info(message: string, category?: string): void
 LoggerManager.raw(message: any): void
 ```
 
-| ‎ Properties ‎  | ‎ Methods ‎ |
-| - | - |
-| `debug_mode` | `info()` |
-| | `raw()` |  
+### Properties
+`debug_mode`
 
-`LoggerManager.debug_mode: boolean`  
-: Property that specifies if the logger should also log to console and allow debug logs.
+### Methods
+`info()`  
+`raw()`  
 
-`LoggerManager.info(message: string, category?: string)`  
-: Send `message` to logs. If `category` is specified, it will be appended to the message.
+### `LoggerManager.debug_mode: boolean`  
+Property that specifies if the logger should also log to console and allow debug logs.
 
-`LoggerManager.raw(message: any)`  
-: Alias for `console.log(message)`.
+### `LoggerManager.info(message: string, category?: string)`  
+Send `message` to logs. If `category` is specified, it will be appended to the message.
+
+### `LoggerManager.raw(message: any)`  
+Alias for `console.log(message)`.
