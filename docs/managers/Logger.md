@@ -1,5 +1,5 @@
 # Logger Manager
-
+## Overview
 
 - **Description**: Logs prettified info to console and to daily rotation log files  
 - **In** `src/managers/logger/loggerManager.ts`  
@@ -15,21 +15,21 @@ LoggerManager.info(message: string, category?: string): void
 LoggerManager.raw(message: any): void
 ```
 
-## Fields
-### Properties
+### Fields
+#### Properties
 `debug_mode`
 
-### Methods
+#### Methods
 `info()`  
 `raw()`  
 
 
-## Docs
-### Properties
+### Docs
+#### Properties
 #### `LoggerManager.debug_mode: boolean`  
 Property that specifies if the logger should also log to console and allow debug logs.
 
-### Methods
+#### Methods
 #### `LoggerManager.info(message: string, category?: string)`  
 Send `message` to logs. If `category` is specified, it will be appended to the message.
 
