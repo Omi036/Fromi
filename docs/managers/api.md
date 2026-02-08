@@ -56,7 +56,7 @@ APIManager.use(middleware: APIMiddleware)
  &nbsp;&nbsp;&nbsp;&nbsp; Handles a middleware.
 
 ### Examples
-#### Simple API
+#### Creating a Simple API
 Let's create a simple api that greets us!
 ```{code-block} js
 :caption: /src/app.ts
@@ -89,7 +89,7 @@ APIRoute.new("get", "/", (req, res) => res.send("Hello"))
 <br/>
 
 #### Creating a route
-**For creating a route** Simply create a new `APIRoute`:
+**For creating a route** simply create a new `APIRoute`:
 ```{code-block} js
 :caption: /src/routes/api/rootRoute.ts
 
