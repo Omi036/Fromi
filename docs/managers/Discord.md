@@ -59,7 +59,7 @@
 
 ### Examples
 #### Creating a bot
-Let's create a bot that replies to our ping and notifies us when it's ready!:
+Let's create a bot that replies to our ping and notifies us when it's ready!:  
 Fist, we must specify the secrets in our `.env` file:
 ```{code-block} env
 DISCORD_TOKEN="QE1438jBB$..."
@@ -84,7 +84,7 @@ async function main() {
     // Creates the client
     await DiscordManager.start()
 
-    // Loads every command and event in /src/commands/and in /src/events/
+    // Load every command and event in `/src/commands/` and in `/src/events/`
     await DiscordManager.getCommandsInDirectory(path.join(__dirname, "commands"))
     await DiscordManager.getEventsInDirectory(path.join(__dirname, "events"))
 
