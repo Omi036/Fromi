@@ -15,11 +15,11 @@ LoggerManager.info(message: string, category?: string): void
 LoggerManager.raw(message: any): void
 ```
 
-##### LoggerManager.debug_mode: boolean
-Property that specifies if the logger should also log to console and allow debug logs.
+`LoggerManager.debug_mode: boolean`
+: Property that specifies if the logger should also log to console and allow debug logs.
 
-##### LoggerManager.info(message: string, category?: string)
-Send `message` to logs. If `category` is specified, it will be appended to the message.
+`LoggerManager.info(message: string, category?: string)`
+: Send `message` to logs. If `category` is specified, it will be appended to the message.
 
-##### LoggerManager.raw(message: any)
-Alias for `console.log(message)`.
+`LoggerManager.raw(message: any)`
+: Alias for `console.log(message)`.
