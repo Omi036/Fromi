@@ -8,7 +8,8 @@ Models are the objects that **link data storage or domain entities to a programm
 Models allow developers to interact with data like `User.createOne({...})` or `User.findOne({...})` without worrying about the details of database queries or storage management.
 
 ## Example: User Model
-```js
+```{code-block} js
+:caption: /src/models/userModel.ts
 import { DatabaseManager } from "../managers/database/databaseManager"
 
 class UserModel  {

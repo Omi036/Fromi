@@ -30,7 +30,8 @@ All the code is contained here and only inside this folder.
 ## `.env`
 This is your secret environment variables file. Here you can safely place any variables or sensitive tokens and will not be exposed. That said, do not ever leak this file.  
 By default, a template of this file is provided, with the following structure:  
-```
+```{code-block} env
+:caption: /.env/
 DB_DRIVER="mysql"
 DB_HOST="0.0.0.0"
 DB_USER="user"
