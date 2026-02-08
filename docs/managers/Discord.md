@@ -20,6 +20,11 @@
 `loadEvent()`  
 `loadCommands()`  
 
+#### Exports
+`DiscordManager`
+`DiscordCommand`
+`DiscordEvents`
+
 <br/>
 
 ### Docs

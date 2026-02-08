@@ -17,5 +17,5 @@ exclude_patterns = []
 html_theme = 'furo'
 html_static_path = ['_static'] 
 
-html_title = "Fromi"
+html_title = "Fromi Docs"
 html_css_files = ["css/fonts.css"]

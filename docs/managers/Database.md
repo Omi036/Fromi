@@ -36,6 +36,9 @@ DatabaseManager.findOne(table: string, element: Object): Promise<Object | void>
 `insertOne()`  
 `findOne()`  
 
+#### Exports
+`DatabaseManager`
+
 <br/>
 
 ### Docs

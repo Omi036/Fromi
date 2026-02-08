@@ -17,7 +17,6 @@ APIManager.addRoute(route: APIRoute): void
 APIManager.use(middleware: APIMiddleware)
 // Sends a message on `channel` to everyone
 ```
-**Exports:** `SocketManager`, `APIMiddleware`, `APIRoute`  
 
 <br/>
 
@@ -30,6 +29,11 @@ APIManager.use(middleware: APIMiddleware)
 `start()`  
 `addRoute()`  
 `use()`  
+
+#### Exports
+`SocketManager`
+`APIMiddleware`
+`APIRoute`
 
 <br/>
 

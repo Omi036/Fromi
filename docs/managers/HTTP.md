@@ -26,6 +26,9 @@ HTTPManager.Server
 `handle()`  
 `listen()`  
 
+#### Exports
+`HTTPManager`
+
 <br/>
 
 ### Docs

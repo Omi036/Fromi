@@ -23,6 +23,9 @@ LoggerManager.raw(message: any): void
 `info()`  
 `raw()`  
 
+#### Exports
+`LoggerManager`
+
 <br/>
 
 ### Docs

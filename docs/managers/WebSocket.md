@@ -18,16 +18,6 @@ SocketManager.emit(channel: string, ...args: any): Promise<void>
 // Function that triggers when a user connects, must replace value
 SocketManager.onClientConnection = function(socket: Socket) => void
 ```
-**Exports:** `SocketManager`, `SocketMiddleware`, `SocketChannel`  
-**For creating a channel:** Simply create a new `SocketManager`, it will add itself unless `connectOnJoin` is specified on constructor.
-```js
-SocketChannel.new("hello", (socket) => socket.send("World!"))
-```
-**For starting it:**
-```js
-HTTPManager.handle(SocketChannel.Handler)
-HTTPManager.listen()
-```
 
 <br/>
 
@@ -41,6 +31,11 @@ HTTPManager.listen()
 `use()`  
 `addChannel()`  
 `emit()`  
+
+#### Exports
+`SocketManager`
+`SocketMiddleware`
+`SocketChannel`
 
 <br/>
 

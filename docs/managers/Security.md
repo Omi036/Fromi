@@ -60,6 +60,9 @@ SecurityManager.JWT.getPayload(token: string, jwtSecret?: string): any
 `JWT.isTokenValid()`  
 `JWT.getPayload()`  
 
+#### Exports
+`SecurityManager`
+
 <br/>
 
 ### Docs

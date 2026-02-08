@@ -16,6 +16,9 @@ EnvManager.setEnv(key: string, value: any): void
 `getEnv()`  
 `setEnv()`  
 
+#### Exports
+`EnvManager`
+
 <br/>
 
 ### Docs
