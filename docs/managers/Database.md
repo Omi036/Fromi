@@ -1,5 +1,7 @@
 # Database Manager
 
+## Overview
+
 **Description**: Provides database connection for any database.  
 **In** `src/managers/database/databaseManager.ts`  
 **On Init:** None  

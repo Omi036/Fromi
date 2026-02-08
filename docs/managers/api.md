@@ -1,5 +1,7 @@
 # Api Manager
 
+## Overview
+
 **Description**: Provides a web socket server with channels/events.  
 **In** `src/managers/api/apiManager.ts`  
 **On Init:** None  

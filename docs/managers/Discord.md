@@ -1,5 +1,7 @@
 # Discord Manager
 
+## Overview
+
 **Description**: Provides a wrapper for discord.js library  
 **In** `src/managers/discord/discordManager.ts`  
 **On Init:** Creates a discord.client  

@@ -1,5 +1,6 @@
 # WebSocket Manager
 
+## Overview
 **Description**: Provides a web socket server with channels/events.  
 **In** `src/managers/socket/socketManager.ts`  
 **On Init:** None  

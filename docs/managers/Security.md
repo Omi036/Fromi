@@ -1,4 +1,5 @@
 # Security Manager
+## Overview
 
 **Description**: Provides security features.
 **In** `src/managers/security/securityManager.ts`  
