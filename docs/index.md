@@ -43,7 +43,7 @@ managers/general
 managers/Logger
 managers/Envinronment
 managers/HTTP
-managers/API
+managers/api
 managers/WebSocket
 managers/Database
 managers/Security
