@@ -40,7 +40,8 @@ Managers responsible for the same domain should not rename fields or change data
 - **Singleton Usage:** Treat managers as singletons to avoid redundant instances and ensure centralized control.
 
 ## Example: LoggerManager
-```js
+```{code-block} js
+:caption: /src/managers/logger/loggerManager.ts
 class LoggerManager {
     static init() {
         // Setup logger, e.g., log files, console formatting
