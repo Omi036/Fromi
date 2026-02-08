@@ -18,10 +18,6 @@ APIManager.use(middleware: APIMiddleware)
 // Sends a message on `channel` to everyone
 ```
 **Exports:** `SocketManager`, `APIMiddleware`, `APIRoute`  
-**For creating a route:** Simply create a new `APIRoute`, it will add itself:
-```js
-APIRoute.new("get", "/", (req, res) => res.send("Hello"))
-```
 
 <br/>
 
@@ -58,3 +54,23 @@ APIRoute.new("get", "/", (req, res) => res.send("Hello"))
 
 #### `APIManager.use(middleware: APIMiddleware): void`  
  &nbsp;&nbsp;&nbsp;&nbsp; Handles a middleware.
+
+### Examples
+#### Creating a route
+**For creating a route** Simply create a new `APIRoute`:
+```{code-block} js
+:caption: /src/routes/api/rootRoute.ts
+
+import { ApiRoute } from ".../apiManager"
+
+APIRoute.new("get", "/", (req, res) => res.send("Hello"))
+```
+And make sure to register it in:
+```{code-block} js
+:caption: /src/app.ts
+
+import { ApiRoute } from ".../apiManager"
+
+// We import every route inside routes/api/
+importFromFolder(path.join(__dirname, "routes", "api"))
+```
