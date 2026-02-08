@@ -31,7 +31,7 @@ structure
 managers
 models
 convention
-license
+
 ```
 
 ```{toctree}
@@ -49,6 +49,17 @@ managers/Database
 managers/Security
 managers/Discord
 ```
+
+
+```{toctree}
+:maxdepth: 2
+:hidden:
+:caption: Misc
+
+license
+Github Repo <https://github.com/Omi036/Fromi>
+```
+
 
 ## Why should I use this framework?
 *This framework offers a new coding experience.*  
