@@ -42,6 +42,12 @@ EnvManager.setEnv(key: string, value: any): void
 LoggerManager.debug_mode = false
 // Logs a value and stores it in log file
 LoggerManager.info(message: string, category?: string): void
+// Logs a value and stores it in log file only if debug_mode is enabled
+LoggerManager.debug(message: string, category?: string): void
+// Logs a value and stores it in log file
+LoggerManager.error(message: string, category?: string): void
+// Logs a value and stores it in log file
+LoggerManager.warn(message: string, category?: string): void
 // Logs message, alias for console.log
 LoggerManager.raw(message: any): void
 ```
