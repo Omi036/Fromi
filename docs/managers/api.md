@@ -56,21 +56,54 @@ APIManager.use(middleware: APIMiddleware)
  &nbsp;&nbsp;&nbsp;&nbsp; Handles a middleware.
 
 ### Examples
+#### Simple API
+Let's create a simple api that greets us!
+```{code-block} js
+:caption: /src/app.ts
+
+import { ApiManager } from "./managers/api/apiManager"
+import { HTTPManager } from "./managers/http/httpManager";
+import { importFromFolder } from "./lib/utils/filing"
+
+async function main() {
+    // We tell HttpManager to also handle the API
+    HTTPManager.handle(APIManager.Handler)
+    HTTPManager.createServer()
+    HTTPManager.listen()
+
+    // Now we register every Route inside ./routes/api/
+    importFromFolder(path.join(__dirname, "routes", "api"))
+}
+
+main()
+```
+Now let's create the route:
+```{code-block} js
+:caption: /src/routes/api/rootRoute.ts
+
+import { APIRoute } from "../../managers/api/apiManager";
+
+APIRoute.new("get", "/", (req, res) => res.send("Hello"))
+```
+
+<br/>
+
 #### Creating a route
 **For creating a route** Simply create a new `APIRoute`:
 ```{code-block} js
 :caption: /src/routes/api/rootRoute.ts
 
-import { ApiRoute } from ".../apiManager"
+import { APIRoute } from "../../managers/api/apiManager";
 
 APIRoute.new("get", "/", (req, res) => res.send("Hello"))
 ```
-And make sure to register it in:
+And make sure to import the file:
 ```{code-block} js
 :caption: /src/app.ts
 
-import { ApiRoute } from ".../apiManager"
+import { importFromFolder } from "./lib/utils/filing"
 
 // We import every route inside routes/api/
 importFromFolder(path.join(__dirname, "routes", "api"))
 ```
+This will work because `ApiRoute.new()` appends itself to the APIManager. That means that once the ApiRoute.new() is triggered by the file being registered, it will append itself automatically.
