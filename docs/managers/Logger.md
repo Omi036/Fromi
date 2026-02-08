@@ -15,10 +15,10 @@ LoggerManager.info(message: string, category?: string): void
 LoggerManager.raw(message: any): void
 ```
 
-| Properties | Methods |
+| ‎ Properties ‎  | ‎ Methods ‎ |
 | - | - |
-| debug_mode | info() |
-| | raw() |  
+| `debug_mode` | `info()` |
+| | `raw()` |  
 
 `LoggerManager.debug_mode: boolean`  
 : Property that specifies if the logger should also log to console and allow debug logs.
