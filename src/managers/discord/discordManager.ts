@@ -89,4 +89,4 @@ class DiscordManager extends Manager {
 }
 
 DiscordManager.init();
-export { DiscordManager, DiscordCommand };
+export { DiscordManager, DiscordCommand, DiscordEvent };
