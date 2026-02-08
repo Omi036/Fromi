@@ -36,10 +36,17 @@ license
 
 ```{toctree}
 :maxdepth: 2
+:hidden:
 :caption: Managers
 
-license
+managers/Logger
+managers/Envinronment
+managers/HTTP
 managers/API
+managers/WebSocket
+managers/Database
+managers/Security
+managers/Discord
 ```
 
 ## Why should I use this framework?
