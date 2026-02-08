@@ -16,3 +16,7 @@ h4 {
 h4:has(code) {
     opacity: 1;
 }
+
+h4 code {
+    color: #ff7135
+}
