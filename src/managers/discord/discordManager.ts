@@ -4,7 +4,12 @@ import { importFromFolder } from "../../lib/utils/filing";
 import { DiscordCommand } from "./command";
 import { DiscordEvent } from "./events";
 
+/**
+ * ### DiscordManager
+ * Wrapper for discord.js
+ */
 class DiscordManager extends Manager {
+    private static _hasStarted = false
     static client: DiscordClient | null = null;
     static commands: DiscordCommand[] = []
     static events: DiscordEvent[] = []
@@ -12,23 +17,45 @@ class DiscordManager extends Manager {
     static logInfo(message: string, section?: string) {
         console.log(`[${section}] ${message}`);
     }
-
+    
     static init(intents: GatewayIntentBits[] = [GatewayIntentBits.Guilds]) {
         this.client = new DiscordClient({ intents: intents });
     }
 
+    /**
+     * Sets the client [Gateway Intents](https://discordjs.guide/legacy/popular-topics/intents).  
+     * It will only update if set before client logged in
+     * @param {GatewayIntentBits[]} intents List of intents that the bot should use
+     */
+    static setIntents(intents: GatewayIntentBits[] = [GatewayIntentBits.Guilds]){
+        if(this._hasStarted) return
+        this.init(intents)
+    }
 
+
+    /**
+     * Starts the Client life.  
+     * It also registers the commands and the events. 
+     * @param {sting?} token Discord client token. If none specified, it will search for the DISCORD_TOKEN env
+     * @param {string?} clientId Discord client id. If none specified, it will search for the DISCORD_CLIENT_ID env
+     */
     static login(token?: string, clientId?: string): void {
         token = token || this.getEnv("DISCORD_TOKEN")
         this.logInfo("Logging in to Discord...", "DiscordManager");        
         this.client.login(token);
         this.logInfo("Logged in", "DiscordManager");
+        this._hasStarted = true
 
         this.loadCommands(this.commands, token, clientId)
         this.loadEvents(this.events)
     }
 
 
+    /**
+     * Loads and retrieves scripts in `directory` folder, and also returns DiscordCommand for every script that has one.
+     * @param {string} directory Directory where the scripts are located
+     * @returns List of DiscordCommand's of every script.
+     */
     static async getCommandsInDirectory(directory: string): Promise<DiscordCommand[]> {
         const commandModules = await importFromFolder(directory)
         const commands: DiscordCommand[] = commandModules
@@ -39,6 +66,11 @@ class DiscordManager extends Manager {
     }
 
 
+    /**
+     * Loads and retrieves scripts in `directory` folder, and also returns DiscordEvent for every script that has one.
+     * @param {string} directory Directory where the scripts are located
+     * @returns List of DiscordEvent's of every script.
+     */
     static async getEventsInDirectory(directory: string): Promise<DiscordEvent[]> {
         const eventModules = await importFromFolder(directory);
         const events: DiscordEvent[] = eventModules
@@ -59,7 +91,7 @@ class DiscordManager extends Manager {
     }
 
 
-    static async loadCommand(command): Promise<void> { this.loadCommands([command]) }
+    static async loadCommand(command: DiscordCommand): Promise<void> { this.loadCommands([command]) }
     static async loadCommands(commandList: DiscordCommand[], token?: string, clientId?: string): Promise<void> {
 
         token = token || this.getEnv("DISCORD_TOKEN")
