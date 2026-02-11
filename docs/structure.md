@@ -14,6 +14,7 @@ The project structure is the following:
 ├── .gitignore
 ├── package.json
 ├── tsconfig.json
+├── jest.config.js
 ├── LICENSE
 └── ...
 ```
@@ -48,8 +49,11 @@ JWT_SECRET="a-string-secret-at-least-256-bits-long"
 ## `.gitignore`
 Contains the files and folders that should not be sent to github nor other repos. You may want to take a look if planning on uploading your project to a repo, otherwise, don't mind it.
 
-## `package.json/tsconfig.json`  
+## `package.json/tsconfig.json/`  
 Contains information about your project and dependencies. You may want to change some values to adjust it to your project information. It also contains project scripts such as `npm run start`.  
+
+## `jest.config.js`
+Contains information about `jest` test cases.
 
 ## `LICENSE`  
 This file is very important, it tells what you can and cannot do with the code. In our case, Fromi is developed under MIT, which means you can do basically anything you want **EXCEPT for modifying or deleting the default LICENSE**. You can add other licenses on top however.

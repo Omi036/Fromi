@@ -37,6 +37,15 @@ convention
 ```{toctree}
 :maxdepth: 2
 :hidden:
+:caption: Framework Builtins
+
+builtins/utils
+builtins/testing
+```
+
+```{toctree}
+:maxdepth: 2
+:hidden:
 :caption: Managers
 
 managers/Logger

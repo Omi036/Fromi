@@ -6,7 +6,8 @@
   "scripts": {
     "setup": "npm i",
     "start": "npx tsc && node dist/app.js",
-    "purge": "rimraf dist logs"
+    "purge": "rimraf dist logs",
+    "test": "jest"
   },
   "keywords": [
     "framework"
@@ -17,10 +18,13 @@
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/mysql": "^2.15.27",
     "@types/socket.io": "^3.0.1",
+    "jest": "^30.2.0",
     "rimraf": "^6.1.2",
+    "ts-jest": "^29.4.6",
     "typescript": "^5.9.3"
   },
   "dependencies": {
