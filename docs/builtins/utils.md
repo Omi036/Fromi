@@ -2,10 +2,12 @@
 Fromi provides some general functions that may be used globally.  
 
 ## Index
-- Events
-- Delay function
-- Object has fields
-- Import/Load all scripts in folder
+- [Events](https://fromi.readthedocs.io/en/latest/builtins/utils.html#events)
+- [Delay function](https://fromi.readthedocs.io/en/latest/builtins/utils.html#delay-function)
+- [Object has fields](https://fromi.readthedocs.io/en/latest/builtins/utils.html#object-has-fields)
+- [Import/Load all scripts in folder](https://fromi.readthedocs.io/en/latest/builtins/utils.html#import-load-all-scripts-in-folder)
+ 
+<br/>  
 
 ### Events
 Events can be triggered and handled anywhere in the framework. They may be useful when connecting several services, but can get messy if not organised.  
@@ -23,6 +25,8 @@ listenEvent("helloMessage", (msg) => {
 // And now we trigger it from anywhere
 triggerEvent("helloMessage", "hello!")
 ```
+ 
+<br/>  
 
 ### Delay Function
 As the name says, it will await x milliseconds, useful for loops or sequences.  
@@ -48,23 +52,29 @@ async main(){
 
 main()
 ```
+ 
+<br/>  
 
 ### Object has fields
 Function that returns true if the object param has every field specified.  
 
 ```{code-block} js
 :caption: Fields examples
-import { APIRoute } from "managers/logger/loggerManager"
+import { LoggerManager } from "managers/logger/loggerManager"
+import { listenEvent } from "lib/utils/events"
 import { hasFields } from "lib/utils/fields"
 
-APIRoute.new("post", "/login", (req, res) => {
+listenEvent("login", user => {
     if(!hasFields(req.body, ["username", "password"])) {
-        res.send("You need to send me an username and password!")
-    }
+        LoggerManager.error("You need to send me an username and password!")
+        return
+    } 
 
-    res.send("Yup, everything is in order")
+    LoggerManager.info("Everything in order")
 })
 ```
+ 
+<br/>  
 
 ### Import/load all scripts in folder
 Loads every script in a specified folder (in absolute path). Really useful in this framework, as lots of modules just need to be loaded in order to be registered.
