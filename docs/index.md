@@ -41,6 +41,7 @@ convention
 
 managers/general
 managers/Logger
+managers/memory
 managers/Environment
 managers/HTTP
 managers/api
