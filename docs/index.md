@@ -39,7 +39,6 @@ convention
 :hidden:
 :caption: Managers
 
-managers/general
 managers/Logger
 managers/memory
 managers/Environment

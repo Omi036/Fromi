@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Description**: Provides memory storage variables on the session.
+**Description**: Provides memory storage variables on the session.  
 **In** `src/managers/memory/memoryManager.ts`  
 **On Init:** None  
 **Provides**:
