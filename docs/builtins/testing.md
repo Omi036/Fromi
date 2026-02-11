@@ -2,6 +2,8 @@
 Fromi comes with [Jest](https://jestjs.io/) setted up.  
 Jest allows testing our app and making test cases.  
 
+<br/>  
+
 ## Creating a test
 For creating a test, we should create a `src/tests/myTest.test.ts`.  
 For instance, lets check that our `hasFields()` function still works correctly!
@@ -24,6 +26,8 @@ In this test, we import the function, and we pass it a test case.
 In this case, we are testing that `hasFields should return true with sample object`.  
 Finally, we get the output and compare it with what is expected to happen, in our case, we were expecting that the output were true.
 
+<br/>  
+
 ## Start testing
 Now that we have a test, we can probe them with:  
 ```npm test```  
@@ -38,5 +42,7 @@ Tests:       1 passed, 1 total
 Snapshots:   0 total
 Time:        16.467 s
 ```
+
+<br/>  
 
 For more info check the [official jest documentation](https://jestjs.io/)
