@@ -65,7 +65,8 @@ import { listenEvent } from "lib/utils/events"
 import { hasFields } from "lib/utils/fields"
 
 listenEvent("login", user => {
-    if(!hasFields(req.body, ["username", "password"])) {
+    // Check if user.username and user.password exists
+    if(!hasFields(user, ["username", "password"])) {
         LoggerManager.error("You need to send me an username and password!")
         return
     } 
