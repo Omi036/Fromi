@@ -6,7 +6,7 @@ npm run dockerize
 ```
 It will grab the .env file by default, although env variables can also be specified (and overriden) on the `docker-compose.yml` file:
 
-```{code-block} yml
+```{code-block} yaml
 :caption: docker-compose.yml
 services:
   app:
