@@ -10,6 +10,12 @@ For starting the project:
 ```bash
 npm run start
 ```
+Now you will see lots of files and folders. If you are not planning on contributing to the repo or dockerizing (or at least not yet) you can remove innecesary files and folders with:
+```bash
+npm run minimal
+```
+This command will provide you only with the configuration files, license and the src folder. No docker, no git, no docs, just the necessary.  
+
 If you need to reset logs and dist folders you can use
 ```bash
 npm run purge

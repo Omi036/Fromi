@@ -41,6 +41,7 @@ convention
 
 builtins/utils
 builtins/testing
+builtins/dockerizing
 ```
 
 ```{toctree}

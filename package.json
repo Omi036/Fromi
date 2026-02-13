@@ -7,6 +7,8 @@
     "setup": "npm i",
     "start": "npx tsc && node dist/app.js",
     "purge": "rimraf dist logs",
+    "minimal": "rimraf docs .dockerignore .gitignore .git .readthedocs.yaml dockerfile README.md .env.example",
+    "dockerize": "docker compose up --build",
     "test": "jest"
   },
   "keywords": [
