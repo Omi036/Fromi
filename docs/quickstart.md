@@ -16,7 +16,7 @@ npm run minimal
 ```
 This command will provide you only with the configuration files, license and the src folder. No docker, no git, no docs, just the necessary.  
 
-If you need to reset logs and dist folders you can use
+And if you need to reset logs and dist folders you can use
 ```bash
 npm run purge
 ```

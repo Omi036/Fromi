@@ -15,6 +15,9 @@ The project structure is the following:
 ├── package.json
 ├── tsconfig.json
 ├── jest.config.js
+├── .dockerignore
+├── dockerfile
+├── docker-compose.yml
 ├── LICENSE
 └── ...
 ```
@@ -57,6 +60,9 @@ Contains information about `jest` test cases.
 
 ## `LICENSE`  
 This file is very important, it tells what you can and cannot do with the code. In our case, Fromi is developed under MIT, which means you can do basically anything you want **EXCEPT for modifying or deleting the default LICENSE**. You can add other licenses on top however.
+
+## `.dockerignore/dockerfile/docker-compose.yml`
+Contains data for dockerization with a mysql db. If you are planning in dockerize, you already know what those files are ;)
 
 ## `src/lib/`
 Contains minimal utils that may be useful to you, common for everyone.  
