@@ -62,38 +62,38 @@ class APIManager extends Manager {
     static Handler = {
         type: "preembedded",
         handler: (req, res) => {
-            this.start()
-            this._apiServer(req, res)
+            APIManager.start()
+            APIManager._apiServer(req, res)
         }
     }
 
     static start(){
-        if(this._hasStarted) return
-        this._hasStarted = true
-        this._apiServer = express()
+        if(APIManager._hasStarted) return
+        APIManager._hasStarted = true
+        APIManager._apiServer = express()
 
-        this.useJson && this._apiServer.use(express.json())
+        APIManager.useJson && APIManager._apiServer.use(express.json())
 
-        for(const middleware of this._middlewares){
-            this._apiServer.use(middleware.handle)
+        for(const middleware of APIManager._middlewares){
+            APIManager._apiServer.use(middleware.handle)
         }
 
-        for(const route of this._routes){
-            route.append(this._apiServer)
+        for(const route of APIManager._routes){
+            route.append(APIManager._apiServer)
         }
     }
 
     static addRoute(route: APIRoute){
-        this._routes.push(route)
+        APIManager._routes.push(route)
 
-        if(this._hasStarted){ route.append(this._apiServer) }
+        if(APIManager._hasStarted){ route.append(APIManager._apiServer) }
     }
 
     static use(middleware: APIMiddleware){
-        this._middlewares.push(middleware)
+        APIManager._middlewares.push(middleware)
 
-        if(this._hasStarted) {
-            this._apiServer.use(middleware.handle)
+        if(APIManager._hasStarted) {
+            APIManager._apiServer.use(middleware.handle)
         }
     }
 }

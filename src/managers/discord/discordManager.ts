@@ -19,7 +19,7 @@ class DiscordManager extends Manager {
     }
     
     static init(intents: GatewayIntentBits[] = [GatewayIntentBits.Guilds]) {
-        this.client = new DiscordClient({ intents: intents });
+        DiscordManager.client = new DiscordClient({ intents: intents });
     }
 
     /**
@@ -28,8 +28,8 @@ class DiscordManager extends Manager {
      * @param {GatewayIntentBits[]} intents List of intents that the bot should use
      */
     static setIntents(intents: GatewayIntentBits[] = [GatewayIntentBits.Guilds]){
-        if(this._hasStarted) return
-        this.init(intents)
+        if(DiscordManager._hasStarted) return
+        DiscordManager.init(intents)
     }
 
 
@@ -40,14 +40,14 @@ class DiscordManager extends Manager {
      * @param {string?} clientId Discord client id. If none specified, it will search for the DISCORD_CLIENT_ID env
      */
     static login(token?: string, clientId?: string): void {
-        token = token || this.getEnv("DISCORD_TOKEN")
-        this.logInfo("Logging in to Discord...", "DiscordManager");        
-        this.client.login(token);
-        this.logInfo("Logged in", "DiscordManager");
-        this._hasStarted = true
+        token = token || DiscordManager.getEnv("DISCORD_TOKEN")
+        DiscordManager.logInfo("Logging in to Discord...", "DiscordManager");        
+        DiscordManager.client.login(token);
+        DiscordManager.logInfo("Logged in", "DiscordManager");
+        DiscordManager._hasStarted = true
 
-        this.loadCommands(this.commands, token, clientId)
-        this.loadEvents(this.events)
+        DiscordManager.loadCommands(DiscordManager.commands, token, clientId)
+        DiscordManager.loadEvents(DiscordManager.events)
     }
 
 
@@ -80,33 +80,33 @@ class DiscordManager extends Manager {
         return events;
     }
 
-    static async loadEvent(event: DiscordEvent): Promise<void> { this.loadEvents([event]) }
+    static async loadEvent(event: DiscordEvent): Promise<void> { DiscordManager.loadEvents([event]) }
     static async loadEvents(events: DiscordEvent[]): Promise<void> {
-        this.logInfo(`Registering ${events.length} events...`, "DiscordManager");
+        DiscordManager.logInfo(`Registering ${events.length} events...`, "DiscordManager");
 
         for (let event of events) {
             event.register();
         }
-        this.logInfo(`Registered ${events.length} events`, "DiscordManager");
+        DiscordManager.logInfo(`Registered ${events.length} events`, "DiscordManager");
     }
 
 
-    static async loadCommand(command: DiscordCommand): Promise<void> { this.loadCommands([command]) }
+    static async loadCommand(command: DiscordCommand): Promise<void> { DiscordManager.loadCommands([command]) }
     static async loadCommands(commandList: DiscordCommand[], token?: string, clientId?: string): Promise<void> {
 
-        token = token || this.getEnv("DISCORD_TOKEN")
-        clientId = clientId || this.getEnv("DISCORD_CLIENT_ID")
+        token = token || DiscordManager.getEnv("DISCORD_TOKEN")
+        clientId = clientId || DiscordManager.getEnv("DISCORD_CLIENT_ID")
 
-        this.logInfo("Loading commands...", "DiscordManager");    
+        DiscordManager.logInfo("Loading commands...", "DiscordManager");    
 
         const rest = new REST({ version: '10' }).setToken(token);
         const commands = commandList.map(cmd => cmd.toJSON());
         const response = await rest.put(Routes.applicationCommands(clientId), { body: commands })
 
-        this.logInfo(`Loaded ${commands.length} commands`, "DiscordManager");    
+        DiscordManager.logInfo(`Loaded ${commands.length} commands`, "DiscordManager");    
 
         // Handle command interactions
-        this.client.on(DiscordEvent.Events.InteractionCreate, async interaction => {
+        DiscordManager.client.on(DiscordEvent.Events.InteractionCreate, async interaction => {
             if (!interaction.isCommand()) return;
 
             const command = commandList.find(cmd => cmd.command_name === interaction.commandName);
@@ -114,7 +114,7 @@ class DiscordManager extends Manager {
             if (command) {
                 await command.execute(interaction);
             } else {
-                this.logInfo(`No command found for ${interaction.commandName}`, "DiscordManager");
+                DiscordManager.logInfo(`No command found for ${interaction.commandName}`, "DiscordManager");
             }
         });
     }

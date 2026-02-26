@@ -5,7 +5,7 @@ class MysqlDriver {
     static connection: mysql.Connection;
 
     static async connect(host: string, user: string, password: string, database: string) {
-        this.connection = await mysql.createConnection({
+        MysqlDriver.connection = await mysql.createConnection({
             host: host,
             user: user,
             password: password,
@@ -19,7 +19,7 @@ class MysqlDriver {
         const query = `INSERT INTO ${table} (${keys.join(", ")}) VALUES (${[...values].fill("?").join(", ")})`
 
         return new Promise((resolve, reject) => {
-            this.connection.query(query, values, (err, res) => {
+            MysqlDriver.connection.query(query, values, (err, res) => {
                 if(err) reject(err)
                 resolve(res)
             })
@@ -34,7 +34,7 @@ class MysqlDriver {
         const query = `SELECT * FROM ${table} WHERE ${conditions} LIMIT 1`;
 
         return new Promise((resolve, reject) => {
-            this.connection.query(query, values, (err, res) => {
+            MysqlDriver.connection.query(query, values, (err, res) => {
                 if(err) reject(err)
                 resolve(res)
             })

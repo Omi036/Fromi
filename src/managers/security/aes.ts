@@ -48,8 +48,8 @@ class AESModule {
     static readonly _ivBytes = 12
 
     static encrypt(key: crypto.CipherKey, text: string): AESPayload {
-        const iv = crypto.randomBytes(this._ivBytes)
-        const cipher = crypto.createCipheriv(this._algorithm, key, iv)
+        const iv = crypto.randomBytes(AESModule._ivBytes)
+        const cipher = crypto.createCipheriv(AESModule._algorithm, key, iv)
 
         const encrypted = Buffer.concat([
             cipher.update(text, "utf-8"),
@@ -68,7 +68,7 @@ class AESModule {
 
     static decrypt(key: crypto.CipherKey, payload: AESPayload): string {
         const decipher = crypto.createDecipheriv(
-            this._algorithm,
+            AESModule._algorithm,
             key,
             Buffer.from(payload.iv, "hex")
         )

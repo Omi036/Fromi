@@ -17,22 +17,22 @@ class DatabaseManager extends Manager{
     }
 
     static async start() {
-        this.driver = this.driver || this.getEnv("DB_DRIVER")
+        DatabaseManager.driver = DatabaseManager.driver || DatabaseManager.getEnv("DB_DRIVER")
 
         await this._drivers[this.driver].connect(
-            this.host || this.getEnv("DB_HOST"), 
-            this.user || this.getEnv("DB_USER"), 
-            this.password || this.getEnv("DB_PASSWORD"),
-            this.database || this.getEnv("DB_DATABASE")
+            DatabaseManager.host || DatabaseManager.getEnv("DB_HOST"), 
+            DatabaseManager.user || DatabaseManager.getEnv("DB_USER"), 
+            DatabaseManager.password || DatabaseManager.getEnv("DB_PASSWORD"),
+            DatabaseManager.database || DatabaseManager.getEnv("DB_DATABASE")
         );
     }
 
     static async insertOne(table: string, element: Object): Promise<void> {
-        await this._drivers[this.driver].insertOne(table, element)
+        await DatabaseManager._drivers[DatabaseManager.driver].insertOne(table, element)
     }
 
     static async findOne(table: string, values: Record<string, any>): Promise<any | void> {
-        const item = await this._drivers[this.driver].findOne(table, values)
+        const item = await DatabaseManager._drivers[DatabaseManager.driver].findOne(table, values)
         return item;
     }
 }

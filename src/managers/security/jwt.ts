@@ -26,13 +26,13 @@ class JWTModule {
 
     // Alias
     static getPayload(token: string, jwtSecret?: string): string | jwt.JwtPayload | -1 { 
-        return this.verifyToken(token, jwtSecret) 
+        return JWTModule.verifyToken(token, jwtSecret) 
     }
 
     static verifyToken(token: string, jwtSecret?: string): string | jwt.JwtPayload | -1 {
         jwtSecret = jwtSecret || SecurityManager.getEnv("JWT_SECRET")
 
-        if (!token || !this.isTokenValid(token, jwtSecret)) return -1
+        if (!token || !JWTModule.isTokenValid(token, jwtSecret)) return -1
 
         const decoded = jwt.verify(token, jwtSecret);
         return decoded;

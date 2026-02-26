@@ -14,7 +14,7 @@ class MemoryManager extends Manager {
      * @param {any} value Value to store
      */
     static setVar(name: string, value: any) {
-        this._map[name] = value
+        MemoryManager._map[name] = value
     }
 
     /**
@@ -24,7 +24,7 @@ class MemoryManager extends Manager {
      * @returns The variable value of the fallback if the value doesnt exist
      */
     static getVar(name: string, fallback?: any){
-        return this._map[name] || fallback
+        return MemoryManager._map[name] || fallback
     }
 }
 

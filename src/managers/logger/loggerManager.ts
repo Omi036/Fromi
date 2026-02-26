@@ -89,8 +89,8 @@ class LoggerManager extends Manager {
     private static _sendMessage(message: string, level: string, section = ""){
         message = `${Colors.grey}${section? `[${section}] ` : ""}${Colors.reset}${message}`;
 
-        this.logger_info[level](message)
-        this.console_info[level](message)
+        LoggerManager.logger_info[level](message)
+        LoggerManager.console_info[level](message)
     }
 
     /**
@@ -100,7 +100,7 @@ class LoggerManager extends Manager {
      * @param {string?} section Custom section where the message is logged from
      */
     static info(message: string, section?: string) {
-        this._sendMessage(message, "info", section)
+        LoggerManager._sendMessage(message, "info", section)
     }
 
     /**
@@ -111,8 +111,8 @@ class LoggerManager extends Manager {
      * @param {string?} section Custom section where the message is logged from
      */
     static debug(message: string, section?: string){
-        if(!this.debug_mode) return
-        this._sendMessage(message, "debug", section)
+        if(!LoggerManager.debug_mode) return
+        LoggerManager._sendMessage(message, "debug", section)
     }
 
     /**
@@ -122,7 +122,7 @@ class LoggerManager extends Manager {
      * @param {string?} section Custom section where the message is logged from
      */
     static error(message: string, section?: string){
-        this._sendMessage(message, "error", section)
+        LoggerManager._sendMessage(message, "error", section)
     }
 
     /**
@@ -132,7 +132,7 @@ class LoggerManager extends Manager {
      * @param {string?} section Custom section where the message is logged from
      */
     static warn(message: string, section?: string){
-        this._sendMessage(message, "warn", section)
+        LoggerManager._sendMessage(message, "warn", section)
     }
 
     /** Alias for `console.log(message)` */

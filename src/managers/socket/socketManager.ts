@@ -53,45 +53,45 @@ class SocketManager {
     static Handler = {
         type: "postembedded",
         handler: (server: HTTPServer) => {
-            this._httpServer = server
-            this.start()
+            SocketManagerhis._httpServer = server
+            SocketManager.start()
         }
     }
 
     static async start(){
-        if(this._hasStarted) return
-        this._hasStarted = true
-        this._ioServer = new IOServer(this._httpServer, {});
+        if(SocketManager._hasStarted) return
+        SocketManager._hasStarted = true
+        SocketManager._ioServer = new IOServer(SocketManager._httpServer, {});
 
-        this._ioServer.on("connection", (socket: Socket) => {
-            for(const channel of this._channels){
+        SocketManager._ioServer.on("connection", (socket: Socket) => {
+            for(const channel of SocketManager._channels){
                 if(!channel.connectOnJoin) return
                 socket.on(channel.channel, (...args) => channel.fallback(socket, ...args))
             }
-            this.onClientConnection(socket);
+            SocketManager.onClientConnection(socket);
         })
 
-        for(const middleware of this._middlewares){
-            this._ioServer.use(middleware.handle)
+        for(const middleware of SocketManager._middlewares){
+            SocketManager._ioServer.use(middleware.handle)
         }
     }
 
     static use(middleware: SocketMiddleware){
-        this._middlewares.push(middleware)
+        SocketManager._middlewares.push(middleware)
 
-        if(this._hasStarted) {
-            this._ioServer.use(middleware.handle)
+        if(SocketManager._hasStarted) {
+            SocketManager._ioServer.use(middleware.handle)
         }
     }
 
     static async addChannel(channel: SocketChannel){
-        this._channels.push(channel)
+        SocketManager._channels.push(channel)
     }
 
     static async emit(channel: string, ...args){
-        if(!this._hasStarted) return
+        if(!SocketManager._hasStarted) return
 
-        this._ioServer.emit(channel, ...args)
+        SocketManager._ioServer.emit(channel, ...args)
     }
 
     static onClientConnection: (socket: Socket) => void = function(socket){}
