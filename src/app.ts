@@ -10,10 +10,11 @@ import * as path from 'path';
 async function main(){
     // Pre configs
     LoggerManager.debug_mode = true;
+    EnvManager.init()
     DatabaseManager.getEnv = EnvManager.getEnv
 
     // Start services
-    DatabaseManager.start()
+    // DatabaseManager.start()
 
     // Configs api and websockets
     HTTPManager.handle(APIManager.Handler)
