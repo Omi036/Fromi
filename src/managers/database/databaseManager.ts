@@ -11,7 +11,6 @@ class DatabaseManager extends Manager{
     static password: string
     static database: string
 
-    private static _hasStarted
     static _drivers = {
         [MysqlDriver.DRIVER_NAME]: MysqlDriver,
     }

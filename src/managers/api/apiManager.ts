@@ -61,7 +61,7 @@ class APIManager extends Manager {
 
     static Handler = {
         type: "preembedded",
-        handler: (req, res) => {
+        handler: (req: Request, res: Response) => {
             this.start()
             this._apiServer(req, res)
         }

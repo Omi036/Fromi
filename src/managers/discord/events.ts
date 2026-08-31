@@ -24,11 +24,11 @@ class DiscordEvent {
     static Events = BaseEvents;
     readonly _shouldRegister: boolean = true;
     private _triggersOnce: boolean = false;
-    private event: keyof ClientEvents;
+    private event!: keyof ClientEvents;
 
     executor(...args: any[]): any {}
 
-     /**
+    /**
      * Configure this instance to listen continuously for an event.
      * @param event Discord.js client event name.
      */
@@ -63,9 +63,9 @@ class DiscordEvent {
      */
     register() {
         if (this._triggersOnce) {
-            DiscordManager.client.once(this.event, (...args) => this.executor(...args));
+            DiscordManager.client?.once(this.event, (...args) => this.executor(...args));
         } else {
-            DiscordManager.client.on(this.event, (...args) => this.executor(...args));
+            DiscordManager.client?.on(this.event, (...args) => this.executor(...args));
         }
     }
 }

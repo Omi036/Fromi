@@ -5,7 +5,7 @@ import Transport from 'winston-transport';
 import 'winston-daily-rotate-file';
 
 // Colors in ANSI format for console
-const Colors = {
+const Colors: Record<string, string> = {
     info: "\x1b[36m",
     error: "\x1b[31m",
     warn: "\x1b[33m",
@@ -89,8 +89,8 @@ class LoggerManager extends Manager {
     private static _sendMessage(message: string, level: string, section = ""){
         message = `${Colors.grey}${section? `[${section}] ` : ""}${Colors.reset}${message}`;
 
-        this.logger_info[level](message)
-        this.console_info[level](message)
+        this.logger_info.log(level, message)
+        this.console_info.log(level, message)
     }
 
     /**

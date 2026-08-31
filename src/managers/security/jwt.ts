@@ -2,24 +2,34 @@ import { SecurityManager } from "./securityManager";
 import jwt from "jsonwebtoken"
 
 class JWTModule {
-    static signToken(payload: any, expiresIn?: number, jwtSecret?: string): string {
-        expiresIn = expiresIn || SecurityManager.getEnv("JWT_EXPIRES", "4h")
-        jwtSecret = jwtSecret || SecurityManager.getEnv("JWT_SECRET")
+    static signToken(payload: any, expiresIn?: number | string, jwtSecret?: string): string {
+        const resolvedExpiresIn = expiresIn ?? SecurityManager.getEnv("JWT_EXPIRES", "4h");
+        const resolvedSecret = jwtSecret ?? SecurityManager.getEnv("JWT_SECRET");
+
+        if (!resolvedSecret) {
+            throw new Error('JWT secret is not configured');
+        }
 
         if (!payload || typeof payload !== 'object') {
             throw new Error('Payload must be a non-empty object');
         }
 
-        const token = jwt.sign(payload, jwtSecret, { expiresIn: expiresIn });
+        const token = jwt.sign(payload, resolvedSecret, { expiresIn: resolvedExpiresIn });
         return token;
     }
 
     static isTokenValid(token: string, jwtSecret?: string): boolean {
+        const resolvedSecret = jwtSecret ?? SecurityManager.getEnv("JWT_SECRET");
+
+        if (!resolvedSecret) {
+            return false;
+        }
+
         try {
-            jwt.verify(token, jwtSecret);
+            jwt.verify(token, resolvedSecret);
             return true;
         } catch (err) {
-            return false
+            return false;
         }
     }
 
@@ -30,11 +40,11 @@ class JWTModule {
     }
 
     static verifyToken(token: string, jwtSecret?: string): string | jwt.JwtPayload | -1 {
-        jwtSecret = jwtSecret || SecurityManager.getEnv("JWT_SECRET")
+        const resolvedSecret = jwtSecret ?? SecurityManager.getEnv("JWT_SECRET");
 
-        if (!token || !this.isTokenValid(token, jwtSecret)) return -1
+        if (!resolvedSecret || !token || !this.isTokenValid(token, resolvedSecret)) return -1;
 
-        const decoded = jwt.verify(token, jwtSecret);
+        const decoded = jwt.verify(token, resolvedSecret);
         return decoded;
     }
 

@@ -2,13 +2,13 @@ import { Server as HTTPServer } from "http";
 import { DefaultEventsMap, ExtendedError, Server as IOServer, Socket } from "socket.io";
 
 type MiddlewareFunction = (
-  socket: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>,
-  next: (err?: ExtendedError) => void
+    socket: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap, any>,
+    next: (err?: ExtendedError) => void
 ) => void;
 
 
 class SocketChannel {
-    constructor(channel, fallback: (socket: Socket, ...args) => void, connectOnJoin = true){
+    constructor(channel: string, fallback: (socket: Socket, ...args: any[]) => void, connectOnJoin = true){
         this.channel = channel
         this.fallback = fallback
         this.connectOnJoin = true
@@ -17,7 +17,7 @@ class SocketChannel {
     }
 
     // Alias
-    static new(channel, fallback: (socket: Socket, ...args) => void, connectOnJoin = true){
+    static new(channel: string, fallback: (socket: Socket, ...args: any[]) => void, connectOnJoin = true){
         return new SocketChannel(channel, fallback, connectOnJoin)
     }
 
@@ -27,7 +27,7 @@ class SocketChannel {
 
     channel: string
     connectOnJoin: boolean
-    fallback: (socket: Socket, ...args) => void
+    fallback: (socket: Socket, ...args: any[]) => void
 }
 
 class SocketMiddleware {
@@ -88,7 +88,7 @@ class SocketManager {
         this._channels.push(channel)
     }
 
-    static async emit(channel: string, ...args){
+    static async emit(channel: string, ...args: any[]){
         if(!this._hasStarted) return
 
         this._ioServer.emit(channel, ...args)

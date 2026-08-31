@@ -14,9 +14,9 @@ class AESPayload {
 
     toJSON(): { iv: string, content: string, tag: string} {
         return {
-          iv: this.iv,
-          content: this.content,
-          tag: this.tag
+            iv: this.iv,
+            content: this.content,
+            tag: this.tag
         };
     }
 
@@ -32,7 +32,7 @@ class AESPayload {
         return JSON.stringify(this.toJSON());
     }
 
-    static fromString(str): AESPayload {
+    static fromString(str: string): AESPayload {
         const parts = str.split(':');
         if (parts.length !== 3) {
             throw new Error("Invalid AESPayload string format");

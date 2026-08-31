@@ -6,7 +6,7 @@ import { JWTModule } from "./jwt";
 
 class SecurityManager extends Manager {
     static init() {}
-    static getEnv(varName: string, fallback = undefined): any {return fallback};
+    static getEnv(varName: string, fallback: any = undefined): any {return fallback};
     
     static Bcrypt = BcryptModule
     static AES = AESModule
