@@ -8,8 +8,8 @@ import process from "process";
  * On init it will lookup for the `.env` file on the project root.
  */
 class EnvManager extends Manager {
-    static init() {
-        config({ quiet: true });
+    static init(path?: string) {
+        config({ path, quiet: true });
     }
 
     /**

@@ -18,6 +18,9 @@ class DatabaseManager extends Manager{
     static async start() {
         this.driver = this.driver || this.getEnv("DB_DRIVER")
 
+        if(!this.driver) throw new Error("Tried to start the database without specifying a database driver, specify one by setting DB_DRIVER env variable or set it yourself after initializing the manager.")
+        if(!this._drivers[this.driver]) throw new Error(`Tried to start the database with an unknown driver, supported drivers are: ${Object.keys(this._drivers).join(", ")}. If you need a driver that isnt here, you must implement it yourself.`)
+
         await this._drivers[this.driver].connect(
             this.host || this.getEnv("DB_HOST"), 
             this.user || this.getEnv("DB_USER"), 
