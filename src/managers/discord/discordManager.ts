@@ -42,7 +42,7 @@ class DiscordManager extends Manager {
     static login(token?: string, clientId?: string): void {
         token = token || this.getEnv("DISCORD_TOKEN")
         this.logInfo("Logging in to Discord...", "DiscordManager");        
-        this.client.login(token);
+        this.client?.login(token);
         this.logInfo("Logged in", "DiscordManager");
         this._hasStarted = true
 
@@ -106,7 +106,7 @@ class DiscordManager extends Manager {
         this.logInfo(`Loaded ${commands.length} commands`, "DiscordManager");    
 
         // Handle command interactions
-        this.client.on(DiscordEvent.Events.InteractionCreate, async interaction => {
+        this.client?.on(DiscordEvent.Events.InteractionCreate, async interaction => {
             if (!interaction.isCommand()) return;
 
             const command = commandList.find(cmd => cmd.command_name === interaction.commandName);

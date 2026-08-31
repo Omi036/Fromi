@@ -5,7 +5,7 @@ import { Manager } from "../../lib/classes/manager";
  * Handles storage for runtime global variables. These variables can be accessed from any script.
  */
 class MemoryManager extends Manager {
-    private static _map = {}
+    private static _map: Record<string, any> = {}
     static init() {}
 
     /**

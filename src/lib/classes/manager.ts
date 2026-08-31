@@ -1,5 +1,5 @@
 abstract class Manager {
-    static init: () => any
+    static init: (...args: any) => any
 }
 
 export { Manager };
