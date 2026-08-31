@@ -1,5 +1,5 @@
 import { Manager } from "../../lib/classes/manager";
-import { createServer, Server as HTTPServer, IncomingMessage, RequestListener, ServerResponse } from "http";
+import { createServer, Server as HTTPServer, IncomingMessage, RequestListener, ServerEventMap, ServerResponse } from "http";
 
 interface IHandler {
     type: "preembedded" | "postembedded"
@@ -8,6 +8,8 @@ interface IHandler {
 
 class HTTPManager extends Manager {
     static async init(){}
+    static port: number
+    static hostname: string
 
     private static _hasStarted: boolean;
     static Server: HTTPServer;
@@ -43,7 +45,14 @@ class HTTPManager extends Manager {
         }
     }
 
+    static addEventListener(event: keyof ServerEventMap<typeof IncomingMessage, typeof ServerResponse>, callback: (...args: any[]) => void){
+        if(!this.Server) throw new Error("Tried to add a listener on a server that doesnt exist yet. Create it with HTTPManager.createServer() before adding listeners")
+        this.Server.addListener(event, callback);
+    }
+
     static listen(port: number = 3000, hostname: string = "0.0.0.0"){
+        this.port = port
+        this.hostname = hostname
         this.Server.listen(port , hostname)
     }
 }

@@ -10,16 +10,19 @@ import * as path from 'path';
 async function main(){
     // Pre configs
     LoggerManager.debug_mode = true;
-    EnvManager.init()
-    DatabaseManager.getEnv = EnvManager.getEnv
-
-    // Start services
-    // DatabaseManager.start()
-
+    
+    // DatabaseManager.getEnv = EnvManager.getEnv
+    // DatabaseManager.start() // make sure to set up the env variables before starting the database
+    
     // Configs api and websockets
     HTTPManager.handle(APIManager.Handler)
     HTTPManager.handle(SocketManager.Handler)
     HTTPManager.createServer()
+    
+    HTTPManager.addEventListener("listening", () => {
+        LoggerManager.info(`Listening on port ${HTTPManager.port}`)
+    })
+    
     HTTPManager.listen()
 
     // Registers every Route inside ./routes/api/ and /routes/ws
