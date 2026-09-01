@@ -1,4 +1,4 @@
-class Message {
+class OllamaMessage {
     content: string
     role: string
 
@@ -16,13 +16,13 @@ class Message {
 
 
     static fromUser(content: string){
-        return new Message(content, "user")
+        return new OllamaMessage(content, "user")
     }
 
 
     static fromSystem(content: string){
-        return new Message(content, "system")
+        return new OllamaMessage(content, "system")
     }
 }
 
-export { Message }
+export { OllamaMessage }

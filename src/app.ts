@@ -7,7 +7,6 @@ import { HTTPManager } from "./managers/http/httpManager";
 import { APIManager } from "./managers/api/apiManager";
 import { importFromFolder } from "./lib/utils/filing";
 import * as path from 'path';
-import { Message } from "./managers/ollama/ollamaMessage";
 
 async function main(){
     // Pre configs
