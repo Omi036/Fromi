@@ -23,8 +23,8 @@ OllamaMessage.fromSystem(message: string)
 ### Fields
 
 #### Methods
-[`init()`](https://fromi.readthedocs.io/en/latest/managers/memory.html#memorymanager-setvar-name-string-value-any-void)  
-[`chat()`](https://fromi.readthedocs.io/en/latest/managers/memory.html#memorymanager-getvar-name-string-fallback-any-any)  
+[`init()`](https://fromi.readthedocs.io/en/latest/managers/Ollama.html#ollamamanager-init-url-string-token-string-void)  
+[`chat()`](https://fromi.readthedocs.io/en/latest/managers/Ollama.html#ollamamanager-chat-model-string-messages-ollamamessage-promise-chatresponse)  
 
 #### Exports
 `OllamaManager` `OllamaMessage`
