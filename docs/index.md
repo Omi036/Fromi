@@ -58,6 +58,7 @@ managers/WebSocket
 managers/Database
 managers/Security
 managers/Discord
+managers/Ollama
 ```
 
 
