@@ -5,7 +5,7 @@ import { Message } from "./ollamaMessage";
 class OllamaManager extends Manager {
     static client: Ollama;
 
-    static init(url: string | undefined, token: string | undefined) {
+    static init(url?: string, token?: string) {
         if(url) {
             this.client = new Ollama({host: url, headers: { Authorization: `Bearer ${token}` }})
         } else {
@@ -20,3 +20,5 @@ class OllamaManager extends Manager {
         });
     }
 }
+
+export { OllamaManager }
