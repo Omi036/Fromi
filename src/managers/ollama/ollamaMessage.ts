@@ -13,6 +13,16 @@ class Message {
             role: this.role
         }
     }
+
+
+    static fromUser(content: string){
+        return new Message(content, "user")
+    }
+
+
+    static fromSystem(content: string){
+        return new Message(content, "system")
+    }
 }
 
 export { Message }
