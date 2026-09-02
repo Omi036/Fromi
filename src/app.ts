@@ -1,10 +1,10 @@
 import { LoggerManager } from "./managers/logger/loggerManager";
-import { OllamaManager } from "./managers/ollama/ollamaManager";
 import { SocketManager } from "./managers/socket/socketManager";
 import { HTTPManager } from "./managers/http/httpManager";
 import { APIManager } from "./managers/api/apiManager";
 import { importFromFolder } from "./lib/utils/filing";
 import * as path from 'path';
+
 
 async function main(){
     // Pre configs
@@ -12,7 +12,6 @@ async function main(){
     
     // DatabaseManager.getEnv = EnvManager.getEnv
     // DatabaseManager.start() // make sure to set up the env variables before starting the database
-    OllamaManager.init()
 
     // Configs api and websockets
     HTTPManager.handle(APIManager.Handler)
