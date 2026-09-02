@@ -59,6 +59,7 @@ managers/Database
 managers/Security
 managers/Discord
 managers/Ollama
+managers/Smtp
 ```
 
 

@@ -1,6 +1,4 @@
 import { LoggerManager } from "./managers/logger/loggerManager";
-import { EnvManager } from "./managers/env/envManager";
-import { DatabaseManager } from "./managers/database/databaseManager";
 import { OllamaManager } from "./managers/ollama/ollamaManager";
 import { SocketManager } from "./managers/socket/socketManager";
 import { HTTPManager } from "./managers/http/httpManager";
@@ -30,7 +28,7 @@ async function main(){
     // Registers every Route inside ./routes/api/ and /routes/ws
     importFromFolder(path.join(__dirname, "routes", "api"))
     importFromFolder(path.join(__dirname, "routes", "ws"))
-
+    
     LoggerManager.info("Application started");
 }
 
