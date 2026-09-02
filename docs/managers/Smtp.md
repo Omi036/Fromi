@@ -21,7 +21,8 @@ SMTPManager.sendMail(to: string, subject: string, text: string, html?: string): 
 [`from`](https://fromi.readthedocs.io/en/latest/managers/Smtp.html#smtpmanager-from-string)  
 
 #### Methods
-[`sendMail()`](https://fromi.readthedocs.io/en/latest/managers/Smtp.html#smtpmanager-sendmail-promise-response)  
+[`init()`](https://fromi.readthedocs.io/en/latest/managers/Smtp.html#smtpmanager-init-host-string-port-number-username-string-password-string-void)
+[`sendMail()`](https://fromi.readthedocs.io/en/latest/managers/Smtp.html#smtpmanager-sendmail-to-string-subject-string-text-string-html-string-promise-response)  
 
 #### Exports
 `SmtpManager`

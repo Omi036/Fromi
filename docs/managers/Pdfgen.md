@@ -25,8 +25,8 @@ interface PDFGenData {
 ### Fields
 
 #### Methods
-[`init()`](https://fromi.readthedocs.io/en/latest/managers/pdfgen.html#pdfgenmanager-init-promise-void)  
-[`generatePDF()`](https://fromi.readthedocs.io/en/latest/managers/pdfgen.html#pdfgenmanager-generatepdf-string-data-record-string-string-number-number-void)  
+[`init()`](https://fromi.readthedocs.io/en/latest/managers/Pdfgen.html#pdfgenmanager-init-promise-void)  
+[`generatePDF()`](https://fromi.readthedocs.io/en/latest/managers/Pdfgen.html#apimanager-generatepdf-templatename-string-data-record-string-string-width-number-height-number-promise-pdfgendata)  
 
 #### Exports
 `PDFGenManager`
