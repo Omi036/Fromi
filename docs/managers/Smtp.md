@@ -60,7 +60,6 @@ async function main() {
     // We create the client
     SmtpManager.init("smtp.gmail.com", 587, "username@gmail.com", "password")
 
-
     // Then we send the message
     SmtpManager.sendMail("recipient@gmail.com", "Car extended warranty", "We're reaching you due to your car's extended warranty.")
 }
