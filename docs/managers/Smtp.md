@@ -31,7 +31,7 @@ SMTPManager.sendMail(to: string, subject: string, text: string, html?: string): 
 ### Docs
 
 #### Properties
-#### `SocketManager.from: string`  
+#### `SMTPManager.from: string`  
  &nbsp;&nbsp;&nbsp;&nbsp; String containing the email in format: "mail@mydomain.com" or "Name <mail@mydomain.com>"
 
 
@@ -39,11 +39,11 @@ SMTPManager.sendMail(to: string, subject: string, text: string, html?: string): 
 
 #### Methods
 
-#### `SocketManager.init(host?: string, port?: number, username?: string, password?: string): void`  
+#### `SMTPManager.init(host?: string, port?: number, username?: string, password?: string): void`  
  &nbsp;&nbsp;&nbsp;&nbsp; Initializes the client with the given host, port, username, and password. If none specified, will take from env (getEnv method should be replaces)
 
 
-#### `SocketManager.sendMail(to: string, subject: string, text: string, html?: string): Promise<Response>`  
+#### `SMTPManager.sendMail(to: string, subject: string, text: string, html?: string): Promise<Response>`  
  &nbsp;&nbsp;&nbsp;&nbsp; Sends a mail to the given address, with the subject, text, and html specified.
 
 <br/>
